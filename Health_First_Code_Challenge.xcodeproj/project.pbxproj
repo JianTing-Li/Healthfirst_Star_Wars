@@ -12,6 +12,9 @@
 		D625D22122FF5B6900713E13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D625D21F22FF5B6900713E13 /* Main.storyboard */; };
 		D625D22322FF5B7100713E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D625D22222FF5B7100713E13 /* Assets.xcassets */; };
 		D625D22622FF5B7100713E13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D625D22422FF5B7100713E13 /* LaunchScreen.storyboard */; };
+		D625D23322FF5FC000713E13 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D23222FF5FC000713E13 /* AppError.swift */; };
+		D625D23722FF654600713E13 /* StarWarsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D23622FF654600713E13 /* StarWarsAPIClient.swift */; };
+		D625D23922FF667D00713E13 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D23822FF667D00713E13 /* NetworkHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		D625D22222FF5B7100713E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D625D22522FF5B7100713E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D625D22722FF5B7100713E13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D625D23222FF5FC000713E13 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		D625D23622FF654600713E13 /* StarWarsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsAPIClient.swift; sourceTree = "<group>"; };
+		D625D23822FF667D00713E13 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +60,11 @@
 		D625D21A22FF5B6900713E13 /* Health_First_Code_Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				D625D23222FF5FC000713E13 /* AppError.swift */,
 				D625D22D22FF5B8E00713E13 /* Models */,
 				D625D22E22FF5B9A00713E13 /* Views */,
 				D625D22F22FF5BA800713E13 /* Controllers */,
+				D625D23122FF5FA000713E13 /* Network_Services */,
 				D625D23022FF5BC500713E13 /* Supporting Files */,
 				D625D22722FF5B7100713E13 /* Info.plist */,
 			);
@@ -94,6 +102,15 @@
 				D625D22422FF5B7100713E13 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D625D23122FF5FA000713E13 /* Network_Services */ = {
+			isa = PBXGroup;
+			children = (
+				D625D23622FF654600713E13 /* StarWarsAPIClient.swift */,
+				D625D23822FF667D00713E13 /* NetworkHelper.swift */,
+			);
+			path = Network_Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +186,9 @@
 			files = (
 				D625D21E22FF5B6900713E13 /* ViewController.swift in Sources */,
 				D625D21C22FF5B6900713E13 /* AppDelegate.swift in Sources */,
+				D625D23922FF667D00713E13 /* NetworkHelper.swift in Sources */,
+				D625D23722FF654600713E13 /* StarWarsAPIClient.swift in Sources */,
+				D625D23322FF5FC000713E13 /* AppError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
