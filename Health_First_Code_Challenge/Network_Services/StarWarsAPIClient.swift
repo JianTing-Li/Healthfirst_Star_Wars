@@ -11,7 +11,6 @@ import Foundation
 final class StarWarsAPIClient {
     private init() {}
     
-    public static func get
 }
 
 

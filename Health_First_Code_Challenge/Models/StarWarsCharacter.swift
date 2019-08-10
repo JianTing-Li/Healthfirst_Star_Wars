@@ -12,3 +12,31 @@ import Foundation
 //o Eye color
 //o Birth year
 //o Date created
+
+struct CharactersData: Codable {
+    let count: Int
+    let next: String?
+    let previous: String?
+    struct StarWarsChatacter: Codable {
+        let name: String
+        let hairColor: String
+        let eyeColor: String
+        let birthYear: String
+        let gender: String
+        let homeworld: String
+        let created: String
+        let url: String
+        private enum CodingKeys: String, CodingKey {
+            case name
+            case hairColor = "hair_color"
+            case eyeColor = "eye_color"
+            case birthYear = "birth_year"
+            case gender
+            case homeworld
+            case created
+            case url
+        }
+    }
+    let results: [StarWarsChatacter]
+    
+}
