@@ -11,6 +11,8 @@ import Foundation
 final class NetworkHelper {
     private init() {}
     
+    public static let shared = NetworkHelper()
+
     public func performDataTask(endpointURLString: String,
                                 completion: @escaping (Result<Data, AppError>) -> Void) {
         guard let url = URL(string: endpointURLString) else {

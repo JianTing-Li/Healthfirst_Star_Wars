@@ -17,14 +17,15 @@ struct PlanetsData: Codable {
     let count: Int
     let next: String?
     let previous: String?
-    struct StarWarsPlanet: Codable {
-        let name: String
-        let climate : String
-        let population: String
-        let created: String
-        let url: String
-    }
     let results: [StarWarsPlanet]
+}
+
+struct StarWarsPlanet: Codable {
+    let name: String
+    let climate : String
+    let population: String
+    let created: String
+    let url: String
 }
 
 // when search has no result
