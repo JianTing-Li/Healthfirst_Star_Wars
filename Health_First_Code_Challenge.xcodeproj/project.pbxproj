@@ -17,6 +17,8 @@
 		D625D23922FF667D00713E13 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D23822FF667D00713E13 /* NetworkHelper.swift */; };
 		D625D23B22FF6CB900713E13 /* StarWarsCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D23A22FF6CB900713E13 /* StarWarsCharacter.swift */; };
 		D625D23D22FF6CC300713E13 /* StarWarsPlanet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D23C22FF6CC300713E13 /* StarWarsPlanet.swift */; };
+		D625D24122FFBD3200713E13 /* VC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D24022FFBD3200713E13 /* VC+Extensions.swift */; };
+		D625D24422FFC03200713E13 /* String+DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D24322FFC03200713E13 /* String+DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		D625D23822FF667D00713E13 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		D625D23A22FF6CB900713E13 /* StarWarsCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsCharacter.swift; sourceTree = "<group>"; };
 		D625D23C22FF6CC300713E13 /* StarWarsPlanet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsPlanet.swift; sourceTree = "<group>"; };
+		D625D24022FFBD3200713E13 /* VC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extensions.swift"; sourceTree = "<group>"; };
+		D625D24322FFC03200713E13 /* String+DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateExtensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 				D625D22D22FF5B8E00713E13 /* Models */,
 				D625D22E22FF5B9A00713E13 /* Views */,
 				D625D22F22FF5BA800713E13 /* Controllers */,
+				D625D23E22FFBCBE00713E13 /* Extensions */,
 				D625D23122FF5FA000713E13 /* Network_Services */,
 				D625D23022FF5BC500713E13 /* Supporting Files */,
 				D625D22722FF5B7100713E13 /* Info.plist */,
@@ -117,6 +122,31 @@
 				D625D23822FF667D00713E13 /* NetworkHelper.swift */,
 			);
 			path = Network_Services;
+			sourceTree = "<group>";
+		};
+		D625D23E22FFBCBE00713E13 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D625D23F22FFBD1100713E13 /* Alert Helper */,
+				D625D24222FFBEB500713E13 /* Date Helper */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D625D23F22FFBD1100713E13 /* Alert Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D625D24022FFBD3200713E13 /* VC+Extensions.swift */,
+			);
+			path = "Alert Helper";
+			sourceTree = "<group>";
+		};
+		D625D24222FFBEB500713E13 /* Date Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D625D24322FFC03200713E13 /* String+DateExtensions.swift */,
+			);
+			path = "Date Helper";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +222,10 @@
 			files = (
 				D625D21E22FF5B6900713E13 /* ViewController.swift in Sources */,
 				D625D21C22FF5B6900713E13 /* AppDelegate.swift in Sources */,
+				D625D24122FFBD3200713E13 /* VC+Extensions.swift in Sources */,
 				D625D23D22FF6CC300713E13 /* StarWarsPlanet.swift in Sources */,
 				D625D23922FF667D00713E13 /* NetworkHelper.swift in Sources */,
+				D625D24422FFC03200713E13 /* String+DateExtensions.swift in Sources */,
 				D625D23722FF654600713E13 /* StarWarsAPIClient.swift in Sources */,
 				D625D23B22FF6CB900713E13 /* StarWarsCharacter.swift in Sources */,
 				D625D23322FF5FC000713E13 /* AppError.swift in Sources */,
