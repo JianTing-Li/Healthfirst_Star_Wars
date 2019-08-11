@@ -13,7 +13,7 @@ import Foundation
 //o Population
 //o Date created
 
-struct PlanetsData: Codable {
+struct StarWarsPlanetsData: Codable {
     let count: Int
     let next: String?
     let previous: String?

@@ -13,14 +13,14 @@ final class StarWarsAPIClient {
     
     public static func getStarWarsCharacters(pageNum: Int?,
                                         searchKey: String?,
-                                        completion: @escaping (Result<[StarWarsChatacter], AppError>) -> Void) {
-        var urlEnpointString = "https://swapi.co/api/people/"
+                                        completion: @escaping (Result<[StarWarCharacter], AppError>) -> Void) {
+        var urlEndpointString = "https://swapi.co/api/people/"
         if let searchKey = searchKey {
-            urlEnpointString += "?search=\(searchKey)"
+            urlEndpointString += "?search=\(searchKey)"
         } else if let pageNum = pageNum {
-            urlEnpointString += "?page=\(pageNum)"
+            urlEndpointString += "?page=\(pageNum)"
         }
-        NetworkHelper.shared.performDataTask(endpointURLString: urlEnpointString) { (result) in
+        NetworkHelper.shared.performDataTask(endpointURLString: urlEndpointString) { (result) in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
@@ -35,7 +35,29 @@ final class StarWarsAPIClient {
         }
     }
     
-    // planets
+    public static func getStarWarsPlanets(pageNum: Int?,
+                                          searchKey: String?,
+                                          completion: @escaping (Result<[StarWarsPlanet], AppError>) -> Void) {
+        var urlEndpointString = "https://swapi.co/api/planets/"
+        if let searchKey = searchKey {
+            urlEndpointString += "?search=\(searchKey)"
+        } else if let pageNum = pageNum {
+            urlEndpointString += "?page=\(pageNum)"
+        }
+        NetworkHelper.shared.performDataTask(endpointURLString: urlEndpointString) { (result) in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                do {
+                    let planets = try JSONDecoder().decode(StarWarsPlanetsData.self, from: data).results
+                    completion(.success(planets))
+                } catch {
+                    completion(.failure(.jsonDecodingError(error)))
+                }
+            }
+        }
+    }
 }
 
 

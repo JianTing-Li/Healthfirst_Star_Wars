@@ -17,10 +17,10 @@ struct StarWarsCharactersData: Codable {
     let count: Int
     let next: String?
     let previous: String?
-    let results: [StarWarsChatacter]
+    let results: [StarWarCharacter]
 }
 
-struct StarWarsChatacter: Codable {
+struct StarWarCharacter: Codable {
     let name: String
     let hairColor: String
     let eyeColor: String
