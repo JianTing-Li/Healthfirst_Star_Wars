@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VY4-hR-9NF">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Item 2-->
+        <scene sceneID="Z94-Fz-Ffc">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="qgc-Z8-5yR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wb1-tO-7co">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vkm-n0-Ylr"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="wjD-Bd-LxF"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jVq-eW-z7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-417" y="377"/>
+        </scene>
+        <!--Star Wars-->
+        <scene sceneID="VsG-gf-By6">
+            <objects>
+                <viewController id="C7S-Mn-791" customClass="StarWarsController" customModule="Health_First_Code_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NJc-nT-VyH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4U6-7x-kkA">
+                                <rect key="frame" x="0.0" y="180" width="414" height="633"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XCs-4i-dUX">
+                                    <size key="itemSize" width="210" height="265"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ebd-9i-lZe">
+                                        <rect key="frame" x="102" y="0.0" width="210" height="265"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="210" height="265"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="shL-Yx-OkU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6cc-Mm-uaS">
+                                <rect key="frame" x="0.0" y="144" width="414" height="29"/>
+                                <segments>
+                                    <segment title="Characters"/>
+                                    <segment title="Planets"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="shL-Yx-OkU" firstAttribute="leading" secondItem="2e5-Lc-zXK" secondAttribute="leading" id="DPx-Q1-0mX"/>
+                            <constraint firstItem="6cc-Mm-uaS" firstAttribute="leading" secondItem="2e5-Lc-zXK" secondAttribute="leading" id="IVV-Bc-tuJ"/>
+                            <constraint firstItem="4U6-7x-kkA" firstAttribute="top" secondItem="6cc-Mm-uaS" secondAttribute="bottom" constant="8" id="KF0-n1-v80"/>
+                            <constraint firstItem="4U6-7x-kkA" firstAttribute="bottom" secondItem="2e5-Lc-zXK" secondAttribute="bottom" id="KSD-2f-hvH"/>
+                            <constraint firstItem="6cc-Mm-uaS" firstAttribute="trailing" secondItem="2e5-Lc-zXK" secondAttribute="trailing" id="Rpe-YZ-Qz8"/>
+                            <constraint firstItem="shL-Yx-OkU" firstAttribute="trailing" secondItem="2e5-Lc-zXK" secondAttribute="trailing" id="fTt-GP-Jg3"/>
+                            <constraint firstItem="shL-Yx-OkU" firstAttribute="top" secondItem="2e5-Lc-zXK" secondAttribute="top" id="otE-tZ-3zH"/>
+                            <constraint firstItem="6cc-Mm-uaS" firstAttribute="top" secondItem="shL-Yx-OkU" secondAttribute="bottom" id="rTM-5p-0y6"/>
+                            <constraint firstItem="4U6-7x-kkA" firstAttribute="leading" secondItem="2e5-Lc-zXK" secondAttribute="leading" id="tub-EB-FzG"/>
+                            <constraint firstItem="4U6-7x-kkA" firstAttribute="trailing" secondItem="2e5-Lc-zXK" secondAttribute="trailing" id="zPX-Lb-3uj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2e5-Lc-zXK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Star Wars" id="CNM-1e-1cf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sY-sM-N62" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492.75362318840581" y="-272.54464285714283"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kA5-EK-oy5">
+            <objects>
+                <tabBarController id="VY4-hR-9NF" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OKn-H0-oSg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pkC-NP-Nr4" kind="relationship" relationship="viewControllers" id="5nV-UL-2x6"/>
+                        <segue destination="qgc-Z8-5yR" kind="relationship" relationship="viewControllers" id="tIY-lX-Ua5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEK-kT-t9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1336" y="53"/>
+        </scene>
+        <!--Star Wars-->
+        <scene sceneID="tP1-XH-PXc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pkC-NP-Nr4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Star Wars" selectedImage="space_shuttle" id="SWn-oG-Tre"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aYW-dl-o2o">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C7S-Mn-791" kind="relationship" relationship="rootViewController" id="ZG1-eM-Trd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPf-GA-Pby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-417.39130434782612" y="-272.54464285714283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="space_shuttle" width="25" height="25"/>
+    </resources>
 </document>

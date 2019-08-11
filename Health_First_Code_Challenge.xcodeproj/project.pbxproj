@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D625D21C22FF5B6900713E13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D21B22FF5B6900713E13 /* AppDelegate.swift */; };
-		D625D21E22FF5B6900713E13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D21D22FF5B6900713E13 /* ViewController.swift */; };
+		D625D21E22FF5B6900713E13 /* StarWarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D21D22FF5B6900713E13 /* StarWarsController.swift */; };
 		D625D22122FF5B6900713E13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D625D21F22FF5B6900713E13 /* Main.storyboard */; };
 		D625D22322FF5B7100713E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D625D22222FF5B7100713E13 /* Assets.xcassets */; };
 		D625D22622FF5B7100713E13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D625D22422FF5B7100713E13 /* LaunchScreen.storyboard */; };
@@ -24,7 +24,7 @@
 /* Begin PBXFileReference section */
 		D625D21822FF5B6900713E13 /* Health_First_Code_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Health_First_Code_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D625D21B22FF5B6900713E13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D625D21D22FF5B6900713E13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D625D21D22FF5B6900713E13 /* StarWarsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsController.swift; sourceTree = "<group>"; };
 		D625D22022FF5B6900713E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D625D22222FF5B7100713E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D625D22522FF5B7100713E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		D625D22F22FF5BA800713E13 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D625D21D22FF5B6900713E13 /* ViewController.swift */,
+				D625D21D22FF5B6900713E13 /* StarWarsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D625D21E22FF5B6900713E13 /* ViewController.swift in Sources */,
+				D625D21E22FF5B6900713E13 /* StarWarsController.swift in Sources */,
 				D625D21C22FF5B6900713E13 /* AppDelegate.swift in Sources */,
 				D625D24122FFBD3200713E13 /* VC+Extensions.swift in Sources */,
 				D625D23D22FF6CC300713E13 /* StarWarsPlanet.swift in Sources */,

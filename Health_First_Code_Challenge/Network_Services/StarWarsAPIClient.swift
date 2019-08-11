@@ -13,7 +13,7 @@ final class StarWarsAPIClient {
     
     public static func getStarWarsCharacters(pageNum: Int?,
                                         searchKey: String?,
-                                        completion: @escaping (Result<[StarWarCharacter], AppError>) -> Void) {
+                                        completion: @escaping (Result<StarWarsCharactersData, AppError>) -> Void) {
         var urlEndpointString = "https://swapi.co/api/people/"
         if let searchKey = searchKey {
             urlEndpointString += "?search=\(searchKey)"
@@ -26,8 +26,8 @@ final class StarWarsAPIClient {
                 completion(.failure(error))
             case .success(let data):
                 do {
-                    let characters = try JSONDecoder().decode(StarWarsCharactersData.self, from: data).results
-                    completion(.success(characters))
+                    let charactersData = try JSONDecoder().decode(StarWarsCharactersData.self, from: data)
+                    completion(.success(charactersData))
                 } catch {
                     completion(.failure(.jsonDecodingError(error)))
                 }
@@ -37,7 +37,7 @@ final class StarWarsAPIClient {
     
     public static func getStarWarsPlanets(pageNum: Int?,
                                           searchKey: String?,
-                                          completion: @escaping (Result<[StarWarsPlanet], AppError>) -> Void) {
+                                          completion: @escaping (Result<StarWarsPlanetsData, AppError>) -> Void) {
         var urlEndpointString = "https://swapi.co/api/planets/"
         if let searchKey = searchKey {
             urlEndpointString += "?search=\(searchKey)"
@@ -50,8 +50,8 @@ final class StarWarsAPIClient {
                 completion(.failure(error))
             case .success(let data):
                 do {
-                    let planets = try JSONDecoder().decode(StarWarsPlanetsData.self, from: data).results
-                    completion(.success(planets))
+                    let planetsData = try JSONDecoder().decode(StarWarsPlanetsData.self, from: data)
+                    completion(.success(planetsData))
                 } catch {
                     completion(.failure(.jsonDecodingError(error)))
                 }
