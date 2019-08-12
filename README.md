@@ -1,6 +1,6 @@
 # Star_Wars
 <p align="center">
-  <img src= "LOGO Image Link" />
+  <img src= "https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/StarWarsSmallest.png" />
 </p>
 
 Welcome to “Star Wars,” a Star Wars study app. With this app, you learn every character and planet in Star Wars and memorize them with ease. Download this app, learn all about Star Wars and show off to your friends.
