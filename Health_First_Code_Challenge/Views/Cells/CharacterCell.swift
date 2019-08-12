@@ -23,16 +23,17 @@ class CharacterCell: UITableViewCell {
     @IBOutlet weak var dateCreatedLabel: UILabel!
     @IBOutlet weak var addToFlashButton: UIButton!
     
-    public func configureCell(char: StarWarCharacter, index row: Int) {
-        addToFlashButton.tag = row
+    public func configureCell(char: StarWarCharacter, index: Int) {
+        addToFlashButton.tag = index
         charName.text = char.name
-        birthYearLabel.text = char.birthYear
-        hairColorLabel.text = char.hairColor
-        eyeColorLabel.text = char.eyeColor
-        dateCreatedLabel.text = char.created.formatISODateString(dateFormat: "E, MMM d yyyy, h:mm a")
+        birthYearLabel.text = "Birth Year: \(char.birthYear)"
+        hairColorLabel.text = "Hair Color: \(char.hairColor)"
+        eyeColorLabel.text = "Eye Color: \(char.eyeColor)"
+        let modifyDateString = char.created.components(separatedBy: ".").joined(separator: "+")
+        dateCreatedLabel.text = "Date Created: \(modifyDateString.formatISODateString(dateFormat: "MMM d, yyyy"))"
     }
     
-    @IBAction func addToFlash(_ sender: UIButton) {
+    @IBAction func addToFlashAction(_ sender: UIButton) {
         delegate?.addCharToFlash(tag: sender.tag)
     }
 }

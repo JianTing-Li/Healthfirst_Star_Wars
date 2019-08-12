@@ -47,7 +47,7 @@
                         <rect key="frame" x="365" y="65" width="50" height="50"/>
                         <state key="normal" image="icons8-plus"/>
                         <connections>
-                            <action selector="addToFlash:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="s0p-0c-cFu"/>
+                            <action selector="addToFlashAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="s0p-0c-cFu"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wE-XG-cF2">

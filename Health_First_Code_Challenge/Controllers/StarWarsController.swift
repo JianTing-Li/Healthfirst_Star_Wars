@@ -81,7 +81,9 @@ extension StarWarsController: UITableViewDataSource {
         
         switch state {
         case .characters:
-            break
+            if indexPath.row == charactersViewModel.currentArrCount - 1 {
+                charactersViewModel.fetchCharacters()
+            }
         case .planets:
             break
         }
@@ -90,7 +92,12 @@ extension StarWarsController: UITableViewDataSource {
 }
 extension StarWarsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        switch state {
+        case .characters:
+            return 180
+        case .planets:
+            return 160
+        }
     }
 }
 
