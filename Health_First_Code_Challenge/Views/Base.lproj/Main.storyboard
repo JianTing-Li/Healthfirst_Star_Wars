@@ -80,6 +80,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Star Wars" id="CNM-1e-1cf"/>
                     <connections>
+                        <outlet property="starWarsSearchBar" destination="shL-Yx-OkU" id="uVu-Fs-lHq"/>
                         <outlet property="starWarsTableView" destination="D71-fi-ge5" id="ZTe-42-JEQ"/>
                     </connections>
                 </viewController>

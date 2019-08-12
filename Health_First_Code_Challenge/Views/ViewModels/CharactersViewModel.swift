@@ -21,6 +21,12 @@ final class CharactersViewModel {
             delegate?.fetchCharactersComplete()
         }
     }
+    private var searchResults = [StarWarCharacter]() {
+        didSet {
+            delegate?.fetchCharactersComplete()
+        }
+    }
+    
     private var nextURL: String? = nil
     private var isFetchInProgress = false
     private var firstAPICall = true
@@ -32,6 +38,9 @@ final class CharactersViewModel {
     public var currentArrCount: Int {
         return starWarsCharacters.count
     }
+    public var searchCount: Int {
+        return searchResults.count
+    }
     
     public var isNextPageExist: Bool {
         if let _ = nextURL { return true }
@@ -40,6 +49,9 @@ final class CharactersViewModel {
     
     public func character(at index: Int) -> StarWarCharacter {
         return starWarsCharacters[index]
+    }
+    public func searchChar(at index: Int) -> StarWarCharacter {
+        return searchResults[index]
     }
     
     public func fetchCharacters() {
@@ -58,6 +70,22 @@ final class CharactersViewModel {
                 self?.nextURL = charactersData.next
                 let characters = charactersData.results
                 self?.starWarsCharacters.append(contentsOf: characters)
+            }
+        }
+    }
+    public func searchCharacters(keyword: String) {
+        guard !isFetchInProgress else { return }
+        isFetchInProgress = true
+        
+        StarWarsAPIClient.getStarWarsCharacters(nextPageURL: nil, searchKey: keyword) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                self?.isFetchInProgress = false
+                self?.delegate?.fetchCharactersFail(error: error)
+            case .success(let charactersData):
+                self?.isFetchInProgress = false
+                let characters = charactersData.results
+                self?.searchResults = characters
             }
         }
     }

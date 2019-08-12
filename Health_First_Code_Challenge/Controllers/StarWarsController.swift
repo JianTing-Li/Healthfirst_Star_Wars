@@ -25,23 +25,26 @@ enum DataState {
 class StarWarsController: UIViewController {
 
     @IBOutlet weak var starWarsTableView: UITableView!
+    @IBOutlet weak var starWarsSearchBar: UISearchBar!
     
     // Whenever we switch between characters and planets we want to reload tableview
-    private var state = DataState.characters {
+    private var dataState = DataState.characters {
         didSet {
             DispatchQueue.main.async {
                 self.starWarsTableView.reloadData()
             }
         }
     }
-    
     private var searching = false
     private var charactersViewModel: CharactersViewModel!
     private var planetsViewModel: PlanetsViewModel!
     
+    // TODO: Add refresh control to reset
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        starWarsSearchBar.delegate = self
         planetsViewModel = PlanetsViewModel(delegate: self)
         charactersViewModel = CharactersViewModel(delegate: self)
         charactersViewModel.fetchCharacters()
@@ -56,16 +59,18 @@ class StarWarsController: UIViewController {
     }
 
     @IBAction func changeDataState(_ sender: UISegmentedControl) {
-        state.switchState()
         searching = false
+        dataState.switchState()
+        // TODO: change the searchbar place holder base on dataState
     }
 }
 
-
+// MARK: TableView Methods
 extension StarWarsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch state {
+        switch dataState {
         case .characters:
+            if searching { return charactersViewModel.searchCount }
             return charactersViewModel.currentArrCount
         case .planets:
             return planetsViewModel.currentArrCount
@@ -73,13 +78,13 @@ extension StarWarsController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch state {
+        switch dataState {
         case .characters:
             guard let cell = starWarsTableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            let currentChar = charactersViewModel.character(at: indexPath.row)
+            let currentChar = searching ? charactersViewModel.searchChar(at: indexPath.row) : charactersViewModel.character(at: indexPath.row)
             cell.configureCell(char: currentChar, index: indexPath.row)
             return cell
         case .planets:
@@ -93,11 +98,11 @@ extension StarWarsController: UITableViewDataSource {
         }
     }
     
-    // Infinite Scroll Setup
+    // MARK: Infinite Scroll Setup
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard searching == false else { return }
         
-        switch state {
+        switch dataState {
         case .characters:
             if indexPath.row == charactersViewModel.currentArrCount - 1 {
                 charactersViewModel.fetchCharacters()
@@ -112,7 +117,7 @@ extension StarWarsController: UITableViewDataSource {
 }
 extension StarWarsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch state {
+        switch dataState {
         case .characters:
             return 180
         case .planets:
@@ -121,7 +126,22 @@ extension StarWarsController: UITableViewDelegate {
     }
 }
 
+// MARK: Search Bar Methods
+extension StarWarsController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searching = true
+        guard let searchText = searchBar.text else { return }
+        switch dataState {
+        case .characters:
+            charactersViewModel.searchCharacters(keyword: searchText)
+        case .planets:
+            break
+        }
+    }
+}
 
+// MARK: View Model Delegates
 extension StarWarsController: CharactersViewModelDelegate {
     func fetchCharactersComplete() {
         DispatchQueue.main.async {
@@ -143,7 +163,7 @@ extension StarWarsController: PlanetsViewModelDelegate {
     }
 }
 
-
+// MARK: Cell Delegates
 extension StarWarsController: CharacterCellDelegate {
     func addCharToFlash(tag: Int) {
         // TODO: add to flash
