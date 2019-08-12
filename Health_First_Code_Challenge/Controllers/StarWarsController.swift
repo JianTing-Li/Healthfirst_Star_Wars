@@ -91,6 +91,7 @@ extension StarWarsController: UITableViewDataSource {
             if searching { return charactersViewModel.searchCount }
             return charactersViewModel.currentArrCount
         case .planets:
+            if searching { return planetsViewModel.searchCount }
             return planetsViewModel.currentArrCount
         }
     }
@@ -105,12 +106,13 @@ extension StarWarsController: UITableViewDataSource {
             let currentChar = searching ? charactersViewModel.searchChar(at: indexPath.row) : charactersViewModel.character(at: indexPath.row)
             cell.configureCell(char: currentChar, index: indexPath.row)
             return cell
+            
         case .planets:
             guard let cell = starWarsTableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as? PlanetCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            let currentPlanet = planetsViewModel.planet(at: indexPath.row)
+            let currentPlanet = searching ? planetsViewModel.searchPlanet(at: indexPath.row) : planetsViewModel.planet(at: indexPath.row)
             cell.configureCell(planet: currentPlanet, index: indexPath.row)
             return cell
         }
@@ -148,13 +150,13 @@ extension StarWarsController: UITableViewDelegate {
 extension StarWarsController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         searching = true
-        guard let searchText = searchBar.text else { return }
         switch dataState {
         case .characters:
             charactersViewModel.searchCharacters(keyword: searchText)
         case .planets:
-            break
+            planetsViewModel.searchPlanets(keyword: searchText)
         }
     }
 }

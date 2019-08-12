@@ -21,6 +21,12 @@ final class PlanetsViewModel {
             delegate?.fetchPlanetsComplete()
         }
     }
+    private var searchPlanetResults = [StarWarsPlanet]() {
+        didSet {
+            delegate?.fetchPlanetsComplete()
+        }
+    }
+    
     private var nextURL: String? = nil
     private var isFetchingInProgress = false
     private var firstAPICall = true
@@ -32,6 +38,9 @@ final class PlanetsViewModel {
     public var currentArrCount: Int {
         return starWarsPlanets.count
     }
+    public var searchCount: Int {
+        return searchPlanetResults.count
+    }
     
     public var isNextPageExist: Bool {
         if let _ = nextURL { return true }
@@ -40,6 +49,9 @@ final class PlanetsViewModel {
     
     public func planet(at index: Int) -> StarWarsPlanet {
         return starWarsPlanets[index]
+    }
+    public func searchPlanet(at index: Int) -> StarWarsPlanet {
+        return searchPlanetResults[index]
     }
     
     public func fetchPlanets() {
@@ -58,6 +70,22 @@ final class PlanetsViewModel {
                 self?.nextURL = planetsData.next
                 let planets = planetsData.results
                 self?.starWarsPlanets.append(contentsOf: planets)
+            }
+        }
+    }
+    public func searchPlanets(keyword: String) {
+        guard !isFetchingInProgress else { return }
+        isFetchingInProgress = true
+        
+        StarWarsAPIClient.getStarWarsPlanets(nextPageURL: nil, searchKey: keyword) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                self?.isFetchingInProgress = false
+                self?.delegate?.fetchPlanetsFail(error: error)
+            case .success(let planetsData):
+                self?.isFetchingInProgress = false
+                let planets = planetsData.results
+                self?.searchPlanetResults = planets
             }
         }
     }

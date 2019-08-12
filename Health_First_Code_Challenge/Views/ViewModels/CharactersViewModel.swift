@@ -21,7 +21,7 @@ final class CharactersViewModel {
             delegate?.fetchCharactersComplete()
         }
     }
-    private var searchResults = [StarWarCharacter]() {
+    private var searchCharResults = [StarWarCharacter]() {
         didSet {
             delegate?.fetchCharactersComplete()
         }
@@ -39,7 +39,7 @@ final class CharactersViewModel {
         return starWarsCharacters.count
     }
     public var searchCount: Int {
-        return searchResults.count
+        return searchCharResults.count
     }
     
     public var isNextPageExist: Bool {
@@ -51,7 +51,7 @@ final class CharactersViewModel {
         return starWarsCharacters[index]
     }
     public func searchChar(at index: Int) -> StarWarCharacter {
-        return searchResults[index]
+        return searchCharResults[index]
     }
     
     public func fetchCharacters() {
@@ -85,7 +85,7 @@ final class CharactersViewModel {
             case .success(let charactersData):
                 self?.isFetchInProgress = false
                 let characters = charactersData.results
-                self?.searchResults = characters
+                self?.searchCharResults = characters
             }
         }
     }
