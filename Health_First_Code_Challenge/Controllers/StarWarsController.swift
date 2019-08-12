@@ -9,15 +9,15 @@
 import UIKit
 
 enum DataState {
-    case characters
+    case people
     case planets
     
     public mutating func switchState() {
         switch self {
-        case .characters:
+        case .people:
             self = .planets
         case .planets:
-            self = .characters
+            self = .people
         }
     }
 }
@@ -29,7 +29,7 @@ class StarWarsController: UIViewController {
     private var refreshControl: UIRefreshControl!
     
     // Whenever we switch between characters and planets we want to reload tableview
-    private var dataState = DataState.characters {
+    private var dataState = DataState.people {
         didSet {
             DispatchQueue.main.async {
                 self.starWarsTableView.reloadData()
@@ -37,7 +37,7 @@ class StarWarsController: UIViewController {
         }
     }
     private var searching = false
-    private var charactersViewModel: CharactersViewModel!
+    private var charactersViewModel: PeopleViewModel!
     private var planetsViewModel: PlanetsViewModel!
     
     // TODO: Add refresh control to reset
@@ -64,7 +64,7 @@ class StarWarsController: UIViewController {
     
     private func setupViewModelsAndFetchData() {
         planetsViewModel = PlanetsViewModel(delegate: self)
-        charactersViewModel = CharactersViewModel(delegate: self)
+        charactersViewModel = PeopleViewModel(delegate: self)
         charactersViewModel.fetchCharacters()
         planetsViewModel.fetchPlanets()
     }
@@ -89,7 +89,7 @@ class StarWarsController: UIViewController {
     
     private func changeSearchBarPlaceholder() {
         switch dataState {
-        case .characters:
+        case .people:
             starWarsSearchBar.placeholder = Constants.charSearchPlaceholder
         case .planets:
             starWarsSearchBar.placeholder = Constants.peopleSearchPlaceHolder
@@ -101,7 +101,7 @@ class StarWarsController: UIViewController {
 extension StarWarsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch dataState {
-        case .characters:
+        case .people:
             if searching { return charactersViewModel.searchCount }
             return charactersViewModel.currentArrCount
         case .planets:
@@ -112,12 +112,12 @@ extension StarWarsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch dataState {
-        case .characters:
+        case .people:
             guard let cell = starWarsTableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
-            let currentChar = searching ? charactersViewModel.searchChar(at: indexPath.row) : charactersViewModel.character(at: indexPath.row)
+            let currentChar = searching ? charactersViewModel.searchPerson(at: indexPath.row) : charactersViewModel.person(at: indexPath.row)
             cell.configureCell(char: currentChar, index: indexPath.row)
             return cell
             
@@ -137,7 +137,7 @@ extension StarWarsController: UITableViewDataSource {
         guard searching == false else { return }
         
         switch dataState {
-        case .characters:
+        case .people:
             if indexPath.row == charactersViewModel.currentArrCount - 1 {
                 charactersViewModel.fetchCharacters()
             }
@@ -152,7 +152,7 @@ extension StarWarsController: UITableViewDataSource {
 extension StarWarsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataState {
-        case .characters:
+        case .people:
             return 180
         case .planets:
             return 160
@@ -167,7 +167,7 @@ extension StarWarsController: UISearchBarDelegate {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         searching = true
         switch dataState {
-        case .characters:
+        case .people:
             charactersViewModel.searchCharacters(keyword: searchText)
         case .planets:
             planetsViewModel.searchPlanets(keyword: searchText)
@@ -175,9 +175,9 @@ extension StarWarsController: UISearchBarDelegate {
     }
 }
 
-// MARK: View Model Delegates
-extension StarWarsController: CharactersViewModelDelegate {
-    func fetchCharactersComplete() {
+// MARK: ViewModel Delegates
+extension StarWarsController: PeopleViewModelDelegate, PlanetsViewModelDelegate {
+    func fetchPeopleComplete() {
         DispatchQueue.main.async {
             self.starWarsTableView.reloadData()
         }
@@ -185,8 +185,6 @@ extension StarWarsController: CharactersViewModelDelegate {
     func fetchCharactersFail(error: AppError) {
         showAlert(title: "App Error", message: error.errorMessage())
     }
-}
-extension StarWarsController: PlanetsViewModelDelegate {
     func fetchPlanetsComplete() {
         DispatchQueue.main.async {
             self.starWarsTableView.reloadData()
@@ -197,16 +195,28 @@ extension StarWarsController: PlanetsViewModelDelegate {
     }
 }
 
-// MARK: Cell Delegates
-extension StarWarsController: CharacterCellDelegate {
+// MARK: Cell Delegates: add char / planet to flashcard
+extension StarWarsController: CharacterCellDelegate, PlanetCellDelegate {
     func addCharToFlash(tag: Int) {
-        // TODO: add to flash
-        print("Button Pressed")
+        addToFlash(index: tag)
     }
-}
-extension StarWarsController: PlanetCellDelegate {
     func addPlanetToFlash(tag: Int) {
         // TODO: add to flash
         print("button pressed")
+    }
+    private func addToFlash(index: Int) {
+        switch dataState {
+        case .people:
+            let person = searching ? charactersViewModel.searchPerson(at: index) : charactersViewModel.person(at: index)
+            guard !FlashcardsDataManager.isFlashExist(name: person.name) else {
+                showAlert(title: "Already Exist", message: "This Star Wars character already exist in your flashcard.")
+                return
+            }
+            let flashDescription = person.flashcardDiscription
+            let newFlashcard = Flashcard(type: Category.character.rawValue, name: person.name, description: flashDescription)
+            FlashcardsDataManager.addNewFlashcard(flashcard: newFlashcard)
+        case .planets:
+            break
+        }
     }
 }

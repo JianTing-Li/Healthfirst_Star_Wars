@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct StarWarsCharactersData: Codable {
+struct StarWarsPeopleData: Codable {
     let count: Int
     let next: String?
     let previous: String?
-    let results: [StarWarCharacter]
+    let results: [StarWarsPerson]
 }
 
-struct StarWarCharacter: Codable {
+struct StarWarsPerson: Codable {
     let name: String
     let hairColor: String
     let eyeColor: String
@@ -37,5 +37,13 @@ struct StarWarCharacter: Codable {
     public var formattedCreationDate: String {
         let modifyDateString = created.components(separatedBy: ".").joined(separator: "+")
         return modifyDateString.formatISODateString(dateFormat: Constants.dateFormat)
+    }
+    public var flashcardDiscription: String {
+        return """
+        Birth Year: \(birthYear)
+        Hair Color:\(hairColor)
+        Eye Color: \(eyeColor)
+        Date Created: \(formattedCreationDate)
+        """
     }
 }

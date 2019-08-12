@@ -22,6 +22,9 @@ class FlashcardCell: UICollectionViewCell {
     public func configureCell(flashcard: Flashcard, index: Int) {
         moreOptionsButton.tag = index
         nameLabel.text = flashcard.name
+        layer.cornerRadius = 2
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 2
     }
     
     @IBAction func moreOptions(_ sender: UIButton) {

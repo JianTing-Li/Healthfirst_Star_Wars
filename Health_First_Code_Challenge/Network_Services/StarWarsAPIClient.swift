@@ -13,7 +13,7 @@ final class StarWarsAPIClient {
     
     public static func getStarWarsCharacters(nextPageURL: String?,
                                         searchKey: String?,
-                                        completion: @escaping (Result<StarWarsCharactersData, AppError>) -> Void) {
+                                        completion: @escaping (Result<StarWarsPeopleData, AppError>) -> Void) {
         var urlEndpointString = "https://swapi.co/api/people/"
         if let searchKey = searchKey {
             urlEndpointString += "?search=\(searchKey)"
@@ -26,7 +26,7 @@ final class StarWarsAPIClient {
                 completion(.failure(error))
             case .success(let data):
                 do {
-                    let charactersData = try JSONDecoder().decode(StarWarsCharactersData.self, from: data)
+                    let charactersData = try JSONDecoder().decode(StarWarsPeopleData.self, from: data)
                     completion(.success(charactersData))
                 } catch {
                     completion(.failure(.jsonDecodingError(error)))

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Category {
+enum Category: String {
     case character
     case planet
 }

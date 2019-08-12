@@ -27,25 +27,24 @@
                         </connections>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Ka2-h1-9Z8">
-                        <rect key="frame" x="120.5" y="166.5" width="64" height="26.5"/>
+                        <rect key="frame" x="118" y="167" width="300" height="26.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwW-96-RQL">
-                                <rect key="frame" x="0.0" y="0.0" width="64" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                     </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwW-96-RQL">
+                        <rect key="frame" x="15" y="166.5" width="270" height="27"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="wwW-96-RQL" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="CSD-fi-yCw"/>
                 <constraint firstItem="OEn-h5-N8R" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="UDB-1m-sQ7"/>
+                <constraint firstItem="wwW-96-RQL" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.9" id="aRT-Y3-t9M"/>
                 <constraint firstAttribute="trailing" secondItem="OEn-h5-N8R" secondAttribute="trailing" constant="20" id="aTZ-ld-aFT"/>
-                <constraint firstItem="wwW-96-RQL" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="eTy-IM-gKH"/>
-                <constraint firstItem="wwW-96-RQL" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="oUz-13-Jjw"/>
+                <constraint firstItem="wwW-96-RQL" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="cZX-S4-ECQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

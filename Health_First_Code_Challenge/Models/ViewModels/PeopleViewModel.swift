@@ -8,22 +8,22 @@
 
 import Foundation
 
-protocol CharactersViewModelDelegate: AnyObject {
-    func fetchCharactersComplete()
+protocol PeopleViewModelDelegate: AnyObject {
+    func fetchPeopleComplete()
     func fetchCharactersFail(error: AppError)
 }
 
-final class CharactersViewModel {
-    private weak var delegate: CharactersViewModelDelegate?
+final class PeopleViewModel {
+    private weak var delegate: PeopleViewModelDelegate?
     
-    private var starWarsCharacters = [StarWarCharacter]() {
+    private var starWarsPeople = [StarWarsPerson]() {
         didSet {
-            delegate?.fetchCharactersComplete()
+            delegate?.fetchPeopleComplete()
         }
     }
-    private var searchCharResults = [StarWarCharacter]() {
+    private var searchPersonResults = [StarWarsPerson]() {
         didSet {
-            delegate?.fetchCharactersComplete()
+            delegate?.fetchPeopleComplete()
         }
     }
     
@@ -31,15 +31,15 @@ final class CharactersViewModel {
     private var isFetchInProgress = false
     private var firstAPICall = true
     
-    init(delegate: CharactersViewModelDelegate) {
+    init(delegate: PeopleViewModelDelegate) {
         self.delegate = delegate
     }
     
     public var currentArrCount: Int {
-        return starWarsCharacters.count
+        return starWarsPeople.count
     }
     public var searchCount: Int {
-        return searchCharResults.count
+        return searchPersonResults.count
     }
     
     public var isNextPageExist: Bool {
@@ -47,11 +47,11 @@ final class CharactersViewModel {
         return false
     }
     
-    public func character(at index: Int) -> StarWarCharacter {
-        return starWarsCharacters[index]
+    public func person(at index: Int) -> StarWarsPerson {
+        return starWarsPeople[index]
     }
-    public func searchChar(at index: Int) -> StarWarCharacter {
-        return searchCharResults[index]
+    public func searchPerson(at index: Int) -> StarWarsPerson {
+        return searchPersonResults[index]
     }
     
     public func fetchCharacters() {
@@ -69,7 +69,7 @@ final class CharactersViewModel {
                 self?.isFetchInProgress = false
                 self?.nextURL = charactersData.next
                 let characters = charactersData.results
-                self?.starWarsCharacters.append(contentsOf: characters)
+                self?.starWarsPeople.append(contentsOf: characters)
             }
         }
     }
@@ -85,7 +85,7 @@ final class CharactersViewModel {
             case .success(let charactersData):
                 self?.isFetchInProgress = false
                 let characters = charactersData.results
-                self?.searchCharResults = characters
+                self?.searchPersonResults = characters
             }
         }
     }

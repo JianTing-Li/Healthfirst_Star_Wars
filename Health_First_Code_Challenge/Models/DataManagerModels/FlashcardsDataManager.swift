@@ -51,4 +51,8 @@ final class FlashcardsDataManager {
         flashCards.remove(at: index)
         save()
     }
+    
+    public static func isFlashExist(name: String) -> Bool {
+        return flashCards.contains { $0.name == name }
+    }
 }

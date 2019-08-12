@@ -8,11 +8,6 @@
 
 import Foundation
 
-//o Name
-//o Climate
-//o Population
-//o Date created
-
 struct StarWarsPlanetsData: Codable {
     let count: Int
     let next: String?

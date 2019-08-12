@@ -23,7 +23,7 @@ class CharacterCell: UITableViewCell {
     @IBOutlet weak var dateCreatedLabel: UILabel!
     @IBOutlet weak var addToFlashButton: UIButton!
     
-    public func configureCell(char: StarWarCharacter, index: Int) {
+    public func configureCell(char: StarWarsPerson, index: Int) {
         addToFlashButton.tag = index
         charName.text = char.name
         birthYearLabel.text = "Birth Year: \(char.birthYear)"

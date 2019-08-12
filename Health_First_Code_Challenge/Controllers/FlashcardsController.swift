@@ -23,6 +23,11 @@ class FlashcardsController: UIViewController {
         setupCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        flashCards = FlashcardsDataManager.fetchFlashcards()
+    }
+    
     private func setupCollectionView() {
         flashcardsCollectionView.register(UINib(nibName: "FlashcardCell", bundle: nil), forCellWithReuseIdentifier: "FlashcardCell")
         flashcardsCollectionView.dataSource = self
@@ -53,7 +58,7 @@ extension FlashcardsController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 272*1.2, height: 360*1.2)
+        return CGSize.init(width: 270, height: 360)
     }
 }
 
