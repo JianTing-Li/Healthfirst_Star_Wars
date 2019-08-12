@@ -6,7 +6,7 @@
 Welcome to “Star Wars,” a Star Wars study app. With this app, you learn every character and planet in Star Wars and memorize them with ease. Download this app, learn all about Star Wars and show off to your friends.
 
 ## Scrolling a List and Switch Between Categories
-* When the app is launch, you would be shown with a list of Star Wars characters. 
+* When the app is launched, you would be shown with a list of Star Wars characters. 
 * The app will load more characters as you scroll to the end of the list.
 * You can switch between Star Wars characters and planets.
 
@@ -14,8 +14,8 @@ Welcome to “Star Wars,” a Star Wars study app. With this app, you learn ever
 ![SwitchCategories](gif link)
 
 ## Searching Specific Star Wars characters or planets
-* You can search for specific Star Wars characters or planets using the searching bar.
-* To reset the list, use the refresh control or switch to the other category (Characters or Planets).
+* You can search for specific Star Wars characters or planets using the search bar.
+* To reset the list, use the refresh control or switch to the other categories (Characters or Planets).
 
 ![SearchBarDemo](gif link)
 
@@ -25,7 +25,7 @@ Welcome to “Star Wars,” a Star Wars study app. With this app, you learn ever
 ![AddToFlash](gif link)
 
 ## Using the Flashcards (not yet implemented)
-* Clicking on a flashcard will take you to a new page. You will given with the character’s or planet’s name. 
+* Clicking on a flashcard will take you to a new page. You will be given a card with the character’s or planet’s name. 
 * Here, you can say anything or guess what you know about the planet or the character. 
 * To see the information, simply click on the flashcard and the card will flip with the information of the character or planet.
 
