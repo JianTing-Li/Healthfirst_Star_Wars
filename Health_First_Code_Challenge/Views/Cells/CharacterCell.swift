@@ -14,7 +14,7 @@ protocol CharacterCellDelegate: AnyObject {
 
 class CharacterCell: UITableViewCell {
     
-    private weak var delegate: CharacterCellDelegate?
+    weak var delegate: CharacterCellDelegate?
     
     @IBOutlet weak var charName: UILabel!
     @IBOutlet weak var birthYearLabel: UILabel!

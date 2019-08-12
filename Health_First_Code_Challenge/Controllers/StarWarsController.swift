@@ -27,9 +27,13 @@ class StarWarsController: UIViewController {
     @IBOutlet weak var starWarsTableView: UITableView!
     private var state = DataState.characters
     private var searching = false
+    private var charactersViewModel: CharactersViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
+        charactersViewModel = CharactersViewModel(delegate: self)
+        charactersViewModel.fetchCharacters()
     }
     
     private func configureTableView() {
@@ -44,23 +48,31 @@ class StarWarsController: UIViewController {
     }
 }
 
+
 extension StarWarsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch state {
         case .characters:
-            break
+            return charactersViewModel.currentArrCount
         case .planets:
             break
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch state {
         case .characters:
-            break
+            guard let cell = starWarsTableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterCell else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            cell.configureCell(char: charactersViewModel.character(at: indexPath.row), index: indexPath.row)
+            return cell
         case .planets:
             break
         }
+        return UITableViewCell()
     }
     
     // Infinite Scroll Setup
@@ -76,9 +88,27 @@ extension StarWarsController: UITableViewDataSource {
     }
     
 }
-
 extension StarWarsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
+    }
+}
+
+
+extension StarWarsController: CharactersViewModelDelegate {
+    func fetchCharactersComplete() {
+        DispatchQueue.main.async {
+            self.starWarsTableView.reloadData()
+        }
+    }
+    func fetchCharactersFail(error: AppError) {
+        showAlert(title: "App Error", message: error.errorMessage())
+    }
+}
+
+
+extension StarWarsController: CharacterCellDelegate {
+    func addCharToFlash(tag: Int) {
+        print("Button Pressed")
     }
 }
