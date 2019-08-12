@@ -11,14 +11,14 @@ import Foundation
 final class StarWarsAPIClient {
     private init() {}
     
-    public static func getStarWarsCharacters(pageNum: Int?,
+    public static func getStarWarsCharacters(nextPageURL: String?,
                                         searchKey: String?,
                                         completion: @escaping (Result<StarWarsCharactersData, AppError>) -> Void) {
         var urlEndpointString = "https://swapi.co/api/people/"
         if let searchKey = searchKey {
             urlEndpointString += "?search=\(searchKey)"
-        } else if let pageNum = pageNum {
-            urlEndpointString += "?page=\(pageNum)"
+        } else if let nextPageURL = nextPageURL {
+            urlEndpointString = nextPageURL
         }
         NetworkHelper.shared.performDataTask(endpointURLString: urlEndpointString) { (result) in
             switch result {
@@ -35,14 +35,14 @@ final class StarWarsAPIClient {
         }
     }
     
-    public static func getStarWarsPlanets(pageNum: Int?,
+    public static func getStarWarsPlanets(nextPageURL: String?,
                                           searchKey: String?,
                                           completion: @escaping (Result<StarWarsPlanetsData, AppError>) -> Void) {
         var urlEndpointString = "https://swapi.co/api/planets/"
         if let searchKey = searchKey {
             urlEndpointString += "?search=\(searchKey)"
-        } else if let pageNum = pageNum {
-            urlEndpointString += "?page=\(pageNum)"
+        } else if let nextPageURL = nextPageURL {
+            urlEndpointString = nextPageURL
         }
         NetworkHelper.shared.performDataTask(endpointURLString: urlEndpointString) { (result) in
             switch result {

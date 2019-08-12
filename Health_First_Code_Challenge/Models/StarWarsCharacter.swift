@@ -7,11 +7,6 @@
 //
 
 import Foundation
-//o Name
-//o Hair color
-//o Eye color
-//o Birth year
-//o Date created
 
 struct StarWarsCharactersData: Codable {
     let count: Int
