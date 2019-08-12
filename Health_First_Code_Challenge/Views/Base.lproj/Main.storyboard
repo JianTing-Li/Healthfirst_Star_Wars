@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Flash Cards-->
         <scene sceneID="Z94-Fz-Ffc">
             <objects>
                 <viewController id="qgc-Z8-5yR" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vkm-n0-Ylr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wjD-Bd-LxF"/>
+                    <tabBarItem key="tabBarItem" title="Flash Cards" image="icons8-flashcards" id="wjD-Bd-LxF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVq-eW-z7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,26 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4U6-7x-kkA">
-                                <rect key="frame" x="0.0" y="180" width="414" height="633"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XCs-4i-dUX">
-                                    <size key="itemSize" width="210" height="265"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ebd-9i-lZe">
-                                        <rect key="frame" x="102" y="0.0" width="210" height="265"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="210" height="265"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="shL-Yx-OkU">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -65,19 +45,33 @@
                                     <segment title="Planets"/>
                                 </segments>
                             </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D71-fi-ge5">
+                                <rect key="frame" x="0.0" y="172" width="414" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ryz-l6-gMZ">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ryz-l6-gMZ" id="keM-og-7r7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="shL-Yx-OkU" firstAttribute="leading" secondItem="2e5-Lc-zXK" secondAttribute="leading" id="DPx-Q1-0mX"/>
                             <constraint firstItem="6cc-Mm-uaS" firstAttribute="leading" secondItem="2e5-Lc-zXK" secondAttribute="leading" id="IVV-Bc-tuJ"/>
-                            <constraint firstItem="4U6-7x-kkA" firstAttribute="top" secondItem="6cc-Mm-uaS" secondAttribute="bottom" constant="8" id="KF0-n1-v80"/>
-                            <constraint firstItem="4U6-7x-kkA" firstAttribute="bottom" secondItem="2e5-Lc-zXK" secondAttribute="bottom" id="KSD-2f-hvH"/>
                             <constraint firstItem="6cc-Mm-uaS" firstAttribute="trailing" secondItem="2e5-Lc-zXK" secondAttribute="trailing" id="Rpe-YZ-Qz8"/>
+                            <constraint firstItem="D71-fi-ge5" firstAttribute="top" secondItem="6cc-Mm-uaS" secondAttribute="bottom" id="cTT-P5-Tjr"/>
+                            <constraint firstItem="2e5-Lc-zXK" firstAttribute="bottom" secondItem="D71-fi-ge5" secondAttribute="bottom" id="emU-aX-eZg"/>
                             <constraint firstItem="shL-Yx-OkU" firstAttribute="trailing" secondItem="2e5-Lc-zXK" secondAttribute="trailing" id="fTt-GP-Jg3"/>
+                            <constraint firstItem="2e5-Lc-zXK" firstAttribute="trailing" secondItem="D71-fi-ge5" secondAttribute="trailing" id="ih2-js-zxo"/>
+                            <constraint firstItem="D71-fi-ge5" firstAttribute="leading" secondItem="2e5-Lc-zXK" secondAttribute="leading" id="oHI-R9-dSP"/>
                             <constraint firstItem="shL-Yx-OkU" firstAttribute="top" secondItem="2e5-Lc-zXK" secondAttribute="top" id="otE-tZ-3zH"/>
                             <constraint firstItem="6cc-Mm-uaS" firstAttribute="top" secondItem="shL-Yx-OkU" secondAttribute="bottom" id="rTM-5p-0y6"/>
-                            <constraint firstItem="4U6-7x-kkA" firstAttribute="leading" secondItem="2e5-Lc-zXK" secondAttribute="leading" id="tub-EB-FzG"/>
-                            <constraint firstItem="4U6-7x-kkA" firstAttribute="trailing" secondItem="2e5-Lc-zXK" secondAttribute="trailing" id="zPX-Lb-3uj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2e5-Lc-zXK"/>
                     </view>
@@ -109,7 +103,7 @@
         <scene sceneID="tP1-XH-PXc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pkC-NP-Nr4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Star Wars" selectedImage="space_shuttle" id="SWn-oG-Tre"/>
+                    <tabBarItem key="tabBarItem" title="Star Wars" image="icons8-star_wars" id="SWn-oG-Tre"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aYW-dl-o2o">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -126,6 +120,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="space_shuttle" width="25" height="25"/>
+        <image name="icons8-flashcards" width="25" height="25"/>
+        <image name="icons8-star_wars" width="25" height="25"/>
     </resources>
 </document>
