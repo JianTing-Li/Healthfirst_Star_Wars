@@ -49,6 +49,9 @@
                         <viewLayoutGuide key="safeArea" id="vkm-n0-Ylr"/>
                     </view>
                     <navigationItem key="navigationItem" id="UpY-fh-7fV"/>
+                    <connections>
+                        <outlet property="flashcardsCollectionView" destination="rme-9S-ECw" id="JCS-9F-tFi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVq-eW-z7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

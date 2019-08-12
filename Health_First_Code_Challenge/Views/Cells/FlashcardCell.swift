@@ -8,15 +8,23 @@
 
 import UIKit
 
+protocol FlashcardCellDelegate: AnyObject {
+    func moreOptionsButtonPressed(index: Int)
+}
+
 class FlashcardCell: UICollectionViewCell {
+    
+    weak var delegate: FlashcardCellDelegate?
     
     @IBOutlet weak var moreOptionsButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     
-    public func configureCell() {
-        
+    public func configureCell(flashcard: Flashcard, index: Int) {
+        moreOptionsButton.tag = index
+        nameLabel.text = flashcard.name
     }
     
     @IBAction func moreOptions(_ sender: UIButton) {
+        delegate?.moreOptionsButtonPressed(index: sender.tag)
     }
 }
