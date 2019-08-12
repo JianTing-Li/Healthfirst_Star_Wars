@@ -25,7 +25,16 @@ enum DataState {
 class StarWarsController: UIViewController {
 
     @IBOutlet weak var starWarsTableView: UITableView!
-    private var state = DataState.characters
+    
+    // Whenever we switch between characters and planets we want to reload tableview
+    private var state = DataState.characters {
+        didSet {
+            DispatchQueue.main.async {
+                self.starWarsTableView.reloadData()
+            }
+        }
+    }
+    
     private var searching = false
     private var charactersViewModel: CharactersViewModel!
     
@@ -45,6 +54,7 @@ class StarWarsController: UIViewController {
 
     @IBAction func changeDataState(_ sender: UISegmentedControl) {
         state.switchState()
+        searching = false
     }
 }
 

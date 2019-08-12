@@ -14,7 +14,6 @@ protocol CharactersViewModelDelegate: AnyObject {
 }
 
 final class CharactersViewModel {
-    
     private weak var delegate: CharactersViewModelDelegate?
     
     private var starWarsCharacters = [StarWarCharacter]() {
@@ -24,7 +23,7 @@ final class CharactersViewModel {
     }
     private var nextURL: String? = nil
     private var isFetchInProgress = false
-    private var firstTime = true
+    private var firstAPICall = true
     
     init(delegate: CharactersViewModelDelegate) {
         self.delegate = delegate
@@ -45,8 +44,8 @@ final class CharactersViewModel {
     
     public func fetchCharacters() {
         guard !isFetchInProgress else { return }
-        guard isNextPageExist || firstTime else { return }
-        firstTime = false 
+        guard isNextPageExist || firstAPICall else { return }
+        firstAPICall = false 
         isFetchInProgress = true
         
         StarWarsAPIClient.getStarWarsCharacters(nextPageURL: nextURL, searchKey: nil) { [weak self] (result) in
@@ -54,10 +53,10 @@ final class CharactersViewModel {
             case .failure(let error):
                 self?.isFetchInProgress = false
                 self?.delegate?.fetchCharactersFail(error: error)
-            case .success(let CharactersData):
+            case .success(let charactersData):
                 self?.isFetchInProgress = false
-                self?.nextURL = CharactersData.next
-                let characters = CharactersData.results
+                self?.nextURL = charactersData.next
+                let characters = charactersData.results
                 self?.starWarsCharacters.append(contentsOf: characters)
             }
         }
