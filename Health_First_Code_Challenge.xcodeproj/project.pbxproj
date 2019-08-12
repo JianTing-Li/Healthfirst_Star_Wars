@@ -34,6 +34,7 @@
 		D625D2992302028100713E13 /* FlashcardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2972302028100713E13 /* FlashcardCell.swift */; };
 		D625D29A2302028100713E13 /* FlashcardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D625D2982302028100713E13 /* FlashcardCell.xib */; };
 		D625D29C2302029800713E13 /* FlashcardDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29B2302029800713E13 /* FlashcardDetailCell.swift */; };
+		D625D29E2302118500713E13 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29D2302118500713E13 /* Flashcard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		D625D2972302028100713E13 /* FlashcardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardCell.swift; sourceTree = "<group>"; };
 		D625D2982302028100713E13 /* FlashcardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashcardCell.xib; sourceTree = "<group>"; };
 		D625D29B2302029800713E13 /* FlashcardDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardDetailCell.swift; sourceTree = "<group>"; };
+		D625D29D2302118500713E13 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		D625D22D22FF5B8E00713E13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D625D29D2302118500713E13 /* Flashcard.swift */,
 				D625D28F2302017D00713E13 /* DataManagerModels */,
 				D625D27F2300C22F00713E13 /* ViewModels */,
 				D625D23A22FF6CB900713E13 /* StarWarsCharacter.swift */,
@@ -326,6 +329,7 @@
 				D625D23722FF654600713E13 /* StarWarsAPIClient.swift in Sources */,
 				D625D2882301D93200713E13 /* Constants.swift in Sources */,
 				D625D23B22FF6CB900713E13 /* StarWarsCharacter.swift in Sources */,
+				D625D29E2302118500713E13 /* Flashcard.swift in Sources */,
 				D625D2992302028100713E13 /* FlashcardCell.swift in Sources */,
 				D625D29C2302029800713E13 /* FlashcardDetailCell.swift in Sources */,
 				D625D23322FF5FC000713E13 /* AppError.swift in Sources */,

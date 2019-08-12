@@ -9,10 +9,14 @@
 import UIKit
 
 class FlashcardCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var moreOptionsButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    public func configureCell() {
+        
     }
-
+    
+    @IBAction func moreOptions(_ sender: UIButton) {
+    }
 }

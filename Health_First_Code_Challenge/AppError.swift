@@ -13,17 +13,23 @@ enum AppError: Error {
     case networkError(Error)
     case jsonDecodingError(Error)
     case badStatusCode(String)
+    case propertyListDecodingError(Error)
+    case propertyListEncodingError(Error)
     
     public func errorMessage() -> String {
         switch self {
         case .badURL(let str):
-            return "badURL: \(str)"
+            return "Bad URL: \(str)"
         case .networkError(let error):
-            return "networkError: \(error)"
+            return "Network Error: \(error)"
         case .jsonDecodingError(let error):
-            return "json decoding error: \(error)"
+            return "Json Decoding Error: \(error)"
         case .badStatusCode(let message):
-            return "bad status code: \(message)"
+            return "Bad Status Code: \(message)"
+        case .propertyListDecodingError(let error):
+            return "Property List Decoding Error: \(error)"
+        case .propertyListEncodingError(let error):
+            return "Property List Encoding Error: \(error)"
         }
     }
 }
