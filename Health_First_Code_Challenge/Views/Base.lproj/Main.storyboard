@@ -44,6 +44,9 @@
                                     <segment title="Characters"/>
                                     <segment title="Planets"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeDataState:" destination="C7S-Mn-791" eventType="valueChanged" id="Dyu-wj-4kw"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D71-fi-ge5">
                                 <rect key="frame" x="0.0" y="172" width="414" height="641"/>
@@ -76,6 +79,9 @@
                         <viewLayoutGuide key="safeArea" id="2e5-Lc-zXK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Star Wars" id="CNM-1e-1cf"/>
+                    <connections>
+                        <outlet property="starWarsTableView" destination="D71-fi-ge5" id="ZTe-42-JEQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sY-sM-N62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

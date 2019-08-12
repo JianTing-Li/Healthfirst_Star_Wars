@@ -46,6 +46,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zO4-UO-qtK">
                         <rect key="frame" x="365" y="65" width="50" height="50"/>
                         <state key="normal" image="icons8-plus"/>
+                        <connections>
+                            <action selector="addToFlash:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="s0p-0c-cFu"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wE-XG-cF2">
                         <rect key="frame" x="20" y="42" width="75" height="21"/>
@@ -72,6 +75,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addToFlashButton" destination="zO4-UO-qtK" id="eOV-jl-LLd"/>
+                <outlet property="birthYearLabel" destination="0wE-XG-cF2" id="lqF-qZ-tGg"/>
+                <outlet property="charName" destination="LAm-kA-Nwv" id="fee-HW-dhD"/>
+                <outlet property="dateCreatedLabel" destination="Ja7-Ij-TTN" id="dCE-SU-iny"/>
+                <outlet property="eyeColorLabel" destination="Vwn-1i-q1n" id="kHd-CL-UOQ"/>
+                <outlet property="hairColorLabel" destination="10p-8k-2IU" id="eSw-ps-Vf0"/>
+            </connections>
             <point key="canvasLocation" x="103.62318840579711" y="87.053571428571431"/>
         </tableViewCell>
     </objects>
