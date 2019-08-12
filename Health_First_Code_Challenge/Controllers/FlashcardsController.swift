@@ -30,16 +30,36 @@ class FlashcardsController: UIViewController {
     }
 }
 
+// MARK: CollectionView Methods
 extension FlashcardsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return flashCards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = flashcardsCollectionView.dequeueReusableCell(withReuseIdentifier: <#T##String#>, for: <#T##IndexPath#>)
+        guard let cell = flashcardsCollectionView.dequeueReusableCell(withReuseIdentifier: "FlashcardCell", for: indexPath) as? FlashcardCell else {
+            return UICollectionViewCell()
+        }
+        cell.delegate = self
+        let flashcard = flashCards[indexPath.row]
+        cell.configureCell(flashcard: flashcard, index: indexPath.row)
+        return cell
     }
 }
 
 extension FlashcardsController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: Segue to Detail
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 272*1.2, height: 360*1.2)
+    }
+}
+
+// MARK: More options button via FlashcardCellDelegate
+extension FlashcardsController: FlashcardCellDelegate {
+    func moreOptionsButtonPressed(index: Int) {
+        // TODO: Action sheet to delete selected flashcard
+    }
 }
