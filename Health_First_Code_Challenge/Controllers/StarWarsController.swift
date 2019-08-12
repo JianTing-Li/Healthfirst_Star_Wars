@@ -37,12 +37,15 @@ class StarWarsController: UIViewController {
     
     private var searching = false
     private var charactersViewModel: CharactersViewModel!
+    private var planetsViewModel: PlanetsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        planetsViewModel = PlanetsViewModel(delegate: self)
         charactersViewModel = CharactersViewModel(delegate: self)
         charactersViewModel.fetchCharacters()
+        planetsViewModel.fetchPlanets()
     }
     
     private func configureTableView() {
@@ -65,9 +68,8 @@ extension StarWarsController: UITableViewDataSource {
         case .characters:
             return charactersViewModel.currentArrCount
         case .planets:
-            break
+            return planetsViewModel.currentArrCount
         }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,12 +79,18 @@ extension StarWarsController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.delegate = self
-            cell.configureCell(char: charactersViewModel.character(at: indexPath.row), index: indexPath.row)
+            let currentChar = charactersViewModel.character(at: indexPath.row)
+            cell.configureCell(char: currentChar, index: indexPath.row)
             return cell
         case .planets:
-            break
+            guard let cell = starWarsTableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as? PlanetCell else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            let currentPlanet = planetsViewModel.planet(at: indexPath.row)
+            cell.configureCell(planet: currentPlanet, index: indexPath.row)
+            return cell
         }
-        return UITableViewCell()
     }
     
     // Infinite Scroll Setup
@@ -95,7 +103,9 @@ extension StarWarsController: UITableViewDataSource {
                 charactersViewModel.fetchCharacters()
             }
         case .planets:
-            break
+            if indexPath.row == planetsViewModel.currentArrCount - 1 {
+                planetsViewModel.fetchPlanets()
+            }
         }
     }
     
@@ -122,10 +132,27 @@ extension StarWarsController: CharactersViewModelDelegate {
         showAlert(title: "App Error", message: error.errorMessage())
     }
 }
+extension StarWarsController: PlanetsViewModelDelegate {
+    func fetchPlanetsComplete() {
+        DispatchQueue.main.async {
+            self.starWarsTableView.reloadData()
+        }
+    }
+    func fetchPlanetsFail(error: AppError) {
+        showAlert(title: "App Error", message: error.errorMessage())
+    }
+}
 
 
 extension StarWarsController: CharacterCellDelegate {
     func addCharToFlash(tag: Int) {
+        // TODO: add to flash
         print("Button Pressed")
+    }
+}
+extension StarWarsController: PlanetCellDelegate {
+    func addPlanetToFlash(tag: Int) {
+        // TODO: add to flash
+        print("button pressed")
     }
 }
