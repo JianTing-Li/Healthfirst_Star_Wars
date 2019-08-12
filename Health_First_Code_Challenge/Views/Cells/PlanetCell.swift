@@ -27,8 +27,7 @@ class PlanetCell: UITableViewCell {
         planetNameLabel.text = planet.name
         climateLabel.text = "Climate: \(planet.climate)"
         populationLabel.text = "Population: \(planet.population)"
-        let modifyDateString = planet.created.components(separatedBy: ".").joined(separator: "+")
-        creationDateLabel.text = "Date Created: \(modifyDateString.formatISODateString(dateFormat: "MMM d, yyyy"))"
+        creationDateLabel.text = "Date Created: \(planet.formattedCreationDate)"
     }
     
     @IBAction func addToFlashAction(_ sender: UIButton) {

@@ -26,12 +26,8 @@ struct StarWarsPlanet: Codable {
     let population: String
     let created: String
     let url: String
+    public var formattedCreationDate: String {
+        let modifyDateString = created.components(separatedBy: ".").joined(separator: "+")
+        return modifyDateString.formatISODateString(dateFormat: Constants.dateFormat)
+    }
 }
-
-// when search has no result
-//{
-//    "count": 0,
-//    "next": null,
-//    "previous": null,
-//    "results": []
-//}

@@ -34,4 +34,8 @@ struct StarWarCharacter: Codable {
         case created
         case url
     }
+    public var formattedCreationDate: String {
+        let modifyDateString = created.components(separatedBy: ".").joined(separator: "+")
+        return modifyDateString.formatISODateString(dateFormat: Constants.dateFormat)
+    }
 }

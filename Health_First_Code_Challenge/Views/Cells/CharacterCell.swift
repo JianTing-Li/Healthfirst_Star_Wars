@@ -29,8 +29,7 @@ class CharacterCell: UITableViewCell {
         birthYearLabel.text = "Birth Year: \(char.birthYear)"
         hairColorLabel.text = "Hair Color: \(char.hairColor)"
         eyeColorLabel.text = "Eye Color: \(char.eyeColor)"
-        let modifyDateString = char.created.components(separatedBy: ".").joined(separator: "+")
-        dateCreatedLabel.text = "Date Created: \(modifyDateString.formatISODateString(dateFormat: "MMM d, yyyy"))"
+        dateCreatedLabel.text = "Date Created: \(char.formattedCreationDate)"
     }
     
     @IBAction func addToFlashAction(_ sender: UIButton) {

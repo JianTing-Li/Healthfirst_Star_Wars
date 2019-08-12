@@ -10,21 +10,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Flash Cards-->
+        <!--Flashcards Controller-->
         <scene sceneID="Z94-Fz-Ffc">
             <objects>
-                <viewController id="qgc-Z8-5yR" sceneMemberID="viewController">
+                <viewController id="qgc-Z8-5yR" customClass="FlashcardsController" customModule="Health_First_Code_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wb1-tO-7co">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rme-9S-ECw">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8uu-W5-8jp">
+                                    <size key="itemSize" width="251" height="245"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uwL-jY-yJL">
+                                        <rect key="frame" x="81.5" y="0.0" width="251" height="245"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="251" height="245"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rme-9S-ECw" firstAttribute="leading" secondItem="vkm-n0-Ylr" secondAttribute="leading" id="GYz-Lp-32a"/>
+                            <constraint firstItem="vkm-n0-Ylr" firstAttribute="bottom" secondItem="rme-9S-ECw" secondAttribute="bottom" id="jS3-nR-0AH"/>
+                            <constraint firstItem="vkm-n0-Ylr" firstAttribute="trailing" secondItem="rme-9S-ECw" secondAttribute="trailing" id="jue-sp-zhm"/>
+                            <constraint firstItem="rme-9S-ECw" firstAttribute="top" secondItem="vkm-n0-Ylr" secondAttribute="top" id="mPq-km-Hx1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vkm-n0-Ylr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Flash Cards" image="icons8-flashcards" id="wjD-Bd-LxF"/>
+                    <navigationItem key="navigationItem" id="UpY-fh-7fV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVq-eW-z7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-417" y="377"/>
+            <point key="canvasLocation" x="492.75362318840581" y="376.33928571428572"/>
+        </scene>
+        <!--Flashcards Detail Controller-->
+        <scene sceneID="iUZ-sL-Oxn">
+            <objects>
+                <viewController id="sZd-W8-l2g" customClass="FlashcardsDetailController" customModule="Health_First_Code_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tZn-6q-qvV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AzS-7h-Ew9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wyv-Xa-Zp0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K21-iN-Kcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504" y="376"/>
         </scene>
         <!--Star Wars-->
         <scene sceneID="VsG-gf-By6">
@@ -99,7 +143,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="pkC-NP-Nr4" kind="relationship" relationship="viewControllers" id="5nV-UL-2x6"/>
-                        <segue destination="qgc-Z8-5yR" kind="relationship" relationship="viewControllers" id="tIY-lX-Ua5"/>
+                        <segue destination="FVx-r0-Tw5" kind="relationship" relationship="viewControllers" id="tIY-lX-Ua5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEK-kT-t9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,6 +168,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPf-GA-Pby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417.39130434782612" y="-272.54464285714283"/>
+        </scene>
+        <!--Flash Cards-->
+        <scene sceneID="Xar-Xz-oLT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FVx-r0-Tw5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Flash Cards" image="icons8-flashcards" id="wjD-Bd-LxF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5hR-oz-98D">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qgc-Z8-5yR" kind="relationship" relationship="rootViewController" id="elh-cb-Gzd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9F-eb-Erx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-417.39130434782612" y="376.33928571428572"/>
         </scene>
     </scenes>
     <resources>
