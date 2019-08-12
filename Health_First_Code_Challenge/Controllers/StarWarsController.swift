@@ -44,11 +44,20 @@ class StarWarsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        starWarsSearchBar.delegate = self
+        setupSearchBar()
+        setupViewModelsAndFetchData()
+    }
+    
+    private func setupViewModelsAndFetchData() {
         planetsViewModel = PlanetsViewModel(delegate: self)
         charactersViewModel = CharactersViewModel(delegate: self)
         charactersViewModel.fetchCharacters()
         planetsViewModel.fetchPlanets()
+    }
+    
+    private func setupSearchBar() {
+        starWarsSearchBar.delegate = self
+        changeSearchBarPlaceholder()
     }
     
     private func configureTableView() {
@@ -61,7 +70,16 @@ class StarWarsController: UIViewController {
     @IBAction func changeDataState(_ sender: UISegmentedControl) {
         searching = false
         dataState.switchState()
-        // TODO: change the searchbar place holder base on dataState
+        changeSearchBarPlaceholder()
+    }
+    
+    private func changeSearchBarPlaceholder() {
+        switch dataState {
+        case .characters:
+            starWarsSearchBar.placeholder = Constants.charSearchPlaceholder
+        case .planets:
+            starWarsSearchBar.placeholder = Constants.peopleSearchPlaceHolder
+        }
     }
 }
 

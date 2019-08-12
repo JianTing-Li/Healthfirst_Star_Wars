@@ -25,6 +25,7 @@
 		D625D2722300A0BF00713E13 /* PlanetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D625D2702300A0BF00713E13 /* PlanetCell.xib */; };
 		D625D2832300C29800713E13 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2822300C29800713E13 /* CharactersViewModel.swift */; };
 		D625D2852300C2A200713E13 /* PlanetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2842300C2A200713E13 /* PlanetsViewModel.swift */; };
+		D625D2882301D93200713E13 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2872301D93200713E13 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D625D2702300A0BF00713E13 /* PlanetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetCell.xib; sourceTree = "<group>"; };
 		D625D2822300C29800713E13 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		D625D2842300C2A200713E13 /* PlanetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewModel.swift; sourceTree = "<group>"; };
+		D625D2872301D93200713E13 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				D625D22D22FF5B8E00713E13 /* Models */,
 				D625D22E22FF5B9A00713E13 /* Views */,
 				D625D22F22FF5BA800713E13 /* Controllers */,
+				D625D2862301D91800713E13 /* Constants */,
 				D625D23E22FFBCBE00713E13 /* Extensions */,
 				D625D23122FF5FA000713E13 /* Network_Services */,
 				D625D23022FF5BC500713E13 /* Supporting Files */,
@@ -183,6 +186,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		D625D2862301D91800713E13 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D625D2872301D93200713E13 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,6 +278,7 @@
 				D625D24422FFC03200713E13 /* String+DateExtensions.swift in Sources */,
 				D625D2712300A0BF00713E13 /* PlanetCell.swift in Sources */,
 				D625D23722FF654600713E13 /* StarWarsAPIClient.swift in Sources */,
+				D625D2882301D93200713E13 /* Constants.swift in Sources */,
 				D625D23B22FF6CB900713E13 /* StarWarsCharacter.swift in Sources */,
 				D625D23322FF5FC000713E13 /* AppError.swift in Sources */,
 			);
