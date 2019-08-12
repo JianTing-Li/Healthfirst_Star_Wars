@@ -26,6 +26,7 @@ class StarWarsController: UIViewController {
 
     @IBOutlet weak var starWarsTableView: UITableView!
     @IBOutlet weak var starWarsSearchBar: UISearchBar!
+    private var refreshControl: UIRefreshControl!
     
     // Whenever we switch between characters and planets we want to reload tableview
     private var dataState = DataState.characters {
@@ -46,6 +47,19 @@ class StarWarsController: UIViewController {
         configureTableView()
         setupSearchBar()
         setupViewModelsAndFetchData()
+        setupRefreshControl()
+    }
+    
+    private func configureTableView() {
+        starWarsTableView.delegate = self
+        starWarsTableView.dataSource = self
+        starWarsTableView.register(UINib(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "CharacterCell")
+        starWarsTableView.register(UINib(nibName: "PlanetCell", bundle: nil), forCellReuseIdentifier: "PlanetCell")
+    }
+    
+    private func setupSearchBar() {
+        starWarsSearchBar.delegate = self
+        changeSearchBarPlaceholder()
     }
     
     private func setupViewModelsAndFetchData() {
@@ -55,16 +69,16 @@ class StarWarsController: UIViewController {
         planetsViewModel.fetchPlanets()
     }
     
-    private func setupSearchBar() {
-        starWarsSearchBar.delegate = self
-        changeSearchBarPlaceholder()
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        starWarsTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(resetTableView), for: .valueChanged)
     }
-    
-    private func configureTableView() {
-        starWarsTableView.delegate = self
-        starWarsTableView.dataSource = self
-        starWarsTableView.register(UINib(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "CharacterCell")
-        starWarsTableView.register(UINib(nibName: "PlanetCell", bundle: nil), forCellReuseIdentifier: "PlanetCell")
+    @objc private func resetTableView() {
+        refreshControl.beginRefreshing()
+        searching = false
+        starWarsTableView.reloadData()
+        refreshControl.endRefreshing()
     }
 
     @IBAction func changeDataState(_ sender: UISegmentedControl) {
