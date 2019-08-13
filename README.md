@@ -42,6 +42,6 @@ Welcome to “Star Wars,” a Star Wars study app. With this app, you learn ever
 ## Prerequisites & Testing the App
 To try the app, you need to have Xcode 12 code installed on your Mac. Then you can either clone the repo or download directly as a zip file in the repo. Next, open the project and test the app using a simulator on Xcode or simulate it on an iPhone running iOS 12.
 
-* Xcode - 10.2+, set up on Swift Language
+* Xcode - 10.2+
 * iOS 12.0+ / Mac OS X 10.11+ 
 * Swift 5.0+
