@@ -65,35 +65,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ed-G1-tkz">
-                                <rect key="frame" x="41.5" y="161" width="331" height="448"/>
-                                <color key="backgroundColor" red="0.90303797370000005" green="1" blue="0.994254741" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="flipFlashcard:" destination="sZd-W8-l2g" eventType="touchUpInside" id="mzU-87-HGA"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4a-nm-8ha">
+                                <rect key="frame" x="41.5" y="162" width="331" height="582"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ed-G1-tkz">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="582"/>
+                                        <color key="backgroundColor" red="0.90303797370000005" green="1" blue="0.994254741" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="flipFlashcard:" destination="sZd-W8-l2g" eventType="touchUpInside" id="mzU-87-HGA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="0Ed-G1-tkz" firstAttribute="top" secondItem="d4a-nm-8ha" secondAttribute="top" id="a1i-F1-83d"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Ed-G1-tkz" secondAttribute="trailing" id="fhf-XX-mBF"/>
+                                    <constraint firstItem="0Ed-G1-tkz" firstAttribute="leading" secondItem="d4a-nm-8ha" secondAttribute="leading" id="rMD-ib-SBN"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Ed-G1-tkz" secondAttribute="bottom" id="tuy-Cl-a9g"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52w-jh-XGQ">
+                                <rect key="frame" x="182.5" y="441" width="49.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="centerY" secondItem="AzS-7h-Ew9" secondAttribute="centerY" multiplier="0.85" id="dCk-sl-mJq"/>
-                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="height" secondItem="tZn-6q-qvV" secondAttribute="height" multiplier="0.5" id="fTD-Gy-5fr"/>
-                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="width" secondItem="tZn-6q-qvV" secondAttribute="width" multiplier="0.8" id="jD5-Y0-LCq"/>
-                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="centerX" secondItem="AzS-7h-Ew9" secondAttribute="centerX" id="xZs-es-OR4"/>
+                            <constraint firstItem="d4a-nm-8ha" firstAttribute="height" secondItem="tZn-6q-qvV" secondAttribute="height" multiplier="0.65" id="0Ih-jU-qoq"/>
+                            <constraint firstItem="d4a-nm-8ha" firstAttribute="centerX" secondItem="AzS-7h-Ew9" secondAttribute="centerX" id="1VD-eq-0aJ"/>
+                            <constraint firstItem="d4a-nm-8ha" firstAttribute="width" secondItem="tZn-6q-qvV" secondAttribute="width" multiplier="0.8" id="aGV-eI-v9g"/>
+                            <constraint firstItem="52w-jh-XGQ" firstAttribute="centerY" secondItem="d4a-nm-8ha" secondAttribute="centerY" id="cND-as-u2E"/>
+                            <constraint firstItem="52w-jh-XGQ" firstAttribute="centerX" secondItem="d4a-nm-8ha" secondAttribute="centerX" id="jl5-QW-ts3"/>
+                            <constraint firstItem="d4a-nm-8ha" firstAttribute="centerY" secondItem="AzS-7h-Ew9" secondAttribute="centerY" id="uRO-8U-B3g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AzS-7h-Ew9"/>
                     </view>
                     <navigationItem key="navigationItem" id="wyv-Xa-Zp0"/>
                     <connections>
-                        <outlet property="flashcardButton" destination="0Ed-G1-tkz" id="iqe-K8-J8V"/>
+                        <outlet property="flashcardLabel" destination="52w-jh-XGQ" id="VmP-zD-aVV"/>
+                        <outlet property="flashcardView" destination="d4a-nm-8ha" id="xLy-5d-MBS"/>
+                        <outlet property="flipCardButton" destination="0Ed-G1-tkz" id="iqe-K8-J8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K21-iN-Kcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504" y="376"/>
+            <point key="canvasLocation" x="1502.8985507246377" y="375.66964285714283"/>
         </scene>
         <!--Star Wars-->
         <scene sceneID="VsG-gf-By6">

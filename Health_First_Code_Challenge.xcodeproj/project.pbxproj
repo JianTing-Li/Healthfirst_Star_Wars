@@ -30,10 +30,8 @@
 		D625D28E2302007000713E13 /* FlashcardsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D28D2302007000713E13 /* FlashcardsDetailController.swift */; };
 		D625D2912302019700713E13 /* FlashcardsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2902302019700713E13 /* FlashcardsDataManager.swift */; };
 		D625D294230201D700713E13 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D293230201D700713E13 /* DataPersistenceManager.swift */; };
-		D625D2962302022A00713E13 /* FlashcardsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2952302022A00713E13 /* FlashcardsDetailView.swift */; };
 		D625D2992302028100713E13 /* FlashcardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2972302028100713E13 /* FlashcardCell.swift */; };
 		D625D29A2302028100713E13 /* FlashcardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D625D2982302028100713E13 /* FlashcardCell.xib */; };
-		D625D29C2302029800713E13 /* FlashcardDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29B2302029800713E13 /* FlashcardDetailCell.swift */; };
 		D625D29E2302118500713E13 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29D2302118500713E13 /* Flashcard.swift */; };
 		D625D2A0230238DE00713E13 /* UIButtons+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29F230238DE00713E13 /* UIButtons+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -64,10 +62,8 @@
 		D625D28D2302007000713E13 /* FlashcardsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsDetailController.swift; sourceTree = "<group>"; };
 		D625D2902302019700713E13 /* FlashcardsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsDataManager.swift; sourceTree = "<group>"; };
 		D625D293230201D700713E13 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
-		D625D2952302022A00713E13 /* FlashcardsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsDetailView.swift; sourceTree = "<group>"; };
 		D625D2972302028100713E13 /* FlashcardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardCell.swift; sourceTree = "<group>"; };
 		D625D2982302028100713E13 /* FlashcardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashcardCell.xib; sourceTree = "<group>"; };
-		D625D29B2302029800713E13 /* FlashcardDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardDetailCell.swift; sourceTree = "<group>"; };
 		D625D29D2302118500713E13 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 		D625D29F230238DE00713E13 /* UIButtons+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButtons+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				D625D21F22FF5B6900713E13 /* Main.storyboard */,
-				D625D2952302022A00713E13 /* FlashcardsDetailView.swift */,
 				D625D27E2300C21F00713E13 /* Cells */,
 			);
 			path = Views;
@@ -202,7 +197,6 @@
 				D625D2702300A0BF00713E13 /* PlanetCell.xib */,
 				D625D2972302028100713E13 /* FlashcardCell.swift */,
 				D625D2982302028100713E13 /* FlashcardCell.xib */,
-				D625D29B2302029800713E13 /* FlashcardDetailCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -316,7 +310,6 @@
 			files = (
 				D625D2912302019700713E13 /* FlashcardsDataManager.swift in Sources */,
 				D625D2832300C29800713E13 /* PeopleViewModel.swift in Sources */,
-				D625D2962302022A00713E13 /* FlashcardsDetailView.swift in Sources */,
 				D625D21E22FF5B6900713E13 /* StarWarsController.swift in Sources */,
 				D625D21C22FF5B6900713E13 /* AppDelegate.swift in Sources */,
 				D625D2852300C2A200713E13 /* PlanetsViewModel.swift in Sources */,
@@ -334,7 +327,6 @@
 				D625D23B22FF6CB900713E13 /* StarWarsPerson.swift in Sources */,
 				D625D29E2302118500713E13 /* Flashcard.swift in Sources */,
 				D625D2992302028100713E13 /* FlashcardCell.swift in Sources */,
-				D625D29C2302029800713E13 /* FlashcardDetailCell.swift in Sources */,
 				D625D23322FF5FC000713E13 /* AppError.swift in Sources */,
 				D625D2A0230238DE00713E13 /* UIButtons+Extensions.swift in Sources */,
 			);
