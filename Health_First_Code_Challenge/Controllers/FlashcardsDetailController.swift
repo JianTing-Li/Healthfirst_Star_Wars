@@ -25,6 +25,7 @@ class FlashcardsDetailController: UIViewController {
     private func setupUI() {
         setupFlashcardView()
         flipCardButton.backgroundColor = .white
+        flashcardLabel.text = flashcard.name
     }
     
     private func setupFlashcardView() {
@@ -36,16 +37,18 @@ class FlashcardsDetailController: UIViewController {
     @IBAction func flipFlashcard(_ sender: UIButton) {
         if currentFlashText == flashcard.name {
             UIView.transition(with: flashcardView, duration: 1.8, options: [.transitionFlipFromRight], animations: {
-//                self.flipCardButton.setTitle(self.flashcard.description, for: .normal)
+                self.flashcardLabel.text = ""
+            }) { (finish) in
                 self.flashcardLabel.text = self.flashcard.description
                 self.currentFlashText = self.flashcard.description
-            })
+            }
         } else {
             UIView.transition(with: flashcardView, duration: 1.8, options: [.transitionFlipFromLeft], animations: {
-//                self.flipCardButton.setTitle(self.flashcard.name, for: .normal)
+                self.flashcardLabel.text = ""
+            }) { (finish) in
                 self.flashcardLabel.text = self.flashcard.name
                 self.currentFlashText = self.flashcard.name
-            })
+            }
         }
     }
 }
