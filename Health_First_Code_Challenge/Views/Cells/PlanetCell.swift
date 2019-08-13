@@ -31,6 +31,7 @@ class PlanetCell: UITableViewCell {
     }
     
     @IBAction func addToFlashAction(_ sender: UIButton) {
+        sender.pulsate()
         delegate?.addPlanetToFlash(tag: sender.tag)
     }
 }

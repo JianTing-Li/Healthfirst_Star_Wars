@@ -35,6 +35,7 @@
 		D625D29A2302028100713E13 /* FlashcardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D625D2982302028100713E13 /* FlashcardCell.xib */; };
 		D625D29C2302029800713E13 /* FlashcardDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29B2302029800713E13 /* FlashcardDetailCell.swift */; };
 		D625D29E2302118500713E13 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29D2302118500713E13 /* Flashcard.swift */; };
+		D625D2A0230238DE00713E13 /* UIButtons+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D29F230238DE00713E13 /* UIButtons+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		D625D2982302028100713E13 /* FlashcardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashcardCell.xib; sourceTree = "<group>"; };
 		D625D29B2302029800713E13 /* FlashcardDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardDetailCell.swift; sourceTree = "<group>"; };
 		D625D29D2302118500713E13 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		D625D29F230238DE00713E13 /* UIButtons+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButtons+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				D625D23F22FFBD1100713E13 /* Alert Helper */,
 				D625D24222FFBEB500713E13 /* Date Helper */,
+				D625D29F230238DE00713E13 /* UIButtons+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				D625D2992302028100713E13 /* FlashcardCell.swift in Sources */,
 				D625D29C2302029800713E13 /* FlashcardDetailCell.swift in Sources */,
 				D625D23322FF5FC000713E13 /* AppError.swift in Sources */,
+				D625D2A0230238DE00713E13 /* UIButtons+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

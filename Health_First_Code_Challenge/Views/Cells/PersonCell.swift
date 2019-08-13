@@ -33,6 +33,7 @@ class PersonCell: UITableViewCell {
     }
     
     @IBAction func addToFlashAction(_ sender: UIButton) {
+        sender.pulsate()
         delegate?.addCharToFlash(tag: sender.tag)
     }
 }
