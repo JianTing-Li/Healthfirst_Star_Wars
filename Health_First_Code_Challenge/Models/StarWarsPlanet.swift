@@ -25,4 +25,11 @@ struct StarWarsPlanet: Codable {
         let modifyDateString = created.components(separatedBy: ".").joined(separator: "+")
         return modifyDateString.formatISODateString(dateFormat: Constants.dateFormat)
     }
+    public var flashcardDiscription: String {
+        return """
+        Climate: \(climate)
+        Population: \(population)
+        Date Created: \(formattedCreationDate)
+        """
+    }
 }

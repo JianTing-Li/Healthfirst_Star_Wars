@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol CharacterCellDelegate: AnyObject {
+protocol PersonCellDelegate: AnyObject {
     func addCharToFlash(tag: Int) -> Void
 }
 
-class CharacterCell: UITableViewCell {
+class PersonCell: UITableViewCell {
     
-    weak var delegate: CharacterCellDelegate?
+    weak var delegate: PersonCellDelegate?
     
     @IBOutlet weak var charName: UILabel!
     @IBOutlet weak var birthYearLabel: UILabel!

@@ -19,8 +19,8 @@
 		D625D23D22FF6CC300713E13 /* StarWarsPlanet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D23C22FF6CC300713E13 /* StarWarsPlanet.swift */; };
 		D625D24122FFBD3200713E13 /* VC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D24022FFBD3200713E13 /* VC+Extensions.swift */; };
 		D625D24422FFC03200713E13 /* String+DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D24322FFC03200713E13 /* String+DateExtensions.swift */; };
-		D625D26D2300A08800713E13 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D26B2300A08800713E13 /* CharacterCell.swift */; };
-		D625D26E2300A08800713E13 /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D625D26C2300A08800713E13 /* CharacterCell.xib */; };
+		D625D26D2300A08800713E13 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D26B2300A08800713E13 /* PersonCell.swift */; };
+		D625D26E2300A08800713E13 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D625D26C2300A08800713E13 /* PersonCell.xib */; };
 		D625D2712300A0BF00713E13 /* PlanetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D26F2300A0BF00713E13 /* PlanetCell.swift */; };
 		D625D2722300A0BF00713E13 /* PlanetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D625D2702300A0BF00713E13 /* PlanetCell.xib */; };
 		D625D2832300C29800713E13 /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D625D2822300C29800713E13 /* PeopleViewModel.swift */; };
@@ -52,8 +52,8 @@
 		D625D23C22FF6CC300713E13 /* StarWarsPlanet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsPlanet.swift; sourceTree = "<group>"; };
 		D625D24022FFBD3200713E13 /* VC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extensions.swift"; sourceTree = "<group>"; };
 		D625D24322FFC03200713E13 /* String+DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateExtensions.swift"; sourceTree = "<group>"; };
-		D625D26B2300A08800713E13 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
-		D625D26C2300A08800713E13 /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
+		D625D26B2300A08800713E13 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		D625D26C2300A08800713E13 /* PersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
 		D625D26F2300A0BF00713E13 /* PlanetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCell.swift; sourceTree = "<group>"; };
 		D625D2702300A0BF00713E13 /* PlanetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetCell.xib; sourceTree = "<group>"; };
 		D625D2822300C29800713E13 /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 		D625D27E2300C21F00713E13 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D625D26B2300A08800713E13 /* CharacterCell.swift */,
-				D625D26C2300A08800713E13 /* CharacterCell.xib */,
+				D625D26B2300A08800713E13 /* PersonCell.swift */,
+				D625D26C2300A08800713E13 /* PersonCell.xib */,
 				D625D26F2300A0BF00713E13 /* PlanetCell.swift */,
 				D625D2702300A0BF00713E13 /* PlanetCell.xib */,
 				D625D2972302028100713E13 /* FlashcardCell.swift */,
@@ -300,7 +300,7 @@
 				D625D22322FF5B7100713E13 /* Assets.xcassets in Resources */,
 				D625D22122FF5B6900713E13 /* Main.storyboard in Resources */,
 				D625D29A2302028100713E13 /* FlashcardCell.xib in Resources */,
-				D625D26E2300A08800713E13 /* CharacterCell.xib in Resources */,
+				D625D26E2300A08800713E13 /* PersonCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +322,7 @@
 				D625D23922FF667D00713E13 /* NetworkHelper.swift in Sources */,
 				D625D28A2302004500713E13 /* FlashcardsController.swift in Sources */,
 				D625D294230201D700713E13 /* DataPersistenceManager.swift in Sources */,
-				D625D26D2300A08800713E13 /* CharacterCell.swift in Sources */,
+				D625D26D2300A08800713E13 /* PersonCell.swift in Sources */,
 				D625D24422FFC03200713E13 /* String+DateExtensions.swift in Sources */,
 				D625D28E2302007000713E13 /* FlashcardsDetailController.swift in Sources */,
 				D625D2712300A0BF00713E13 /* PlanetCell.swift in Sources */,

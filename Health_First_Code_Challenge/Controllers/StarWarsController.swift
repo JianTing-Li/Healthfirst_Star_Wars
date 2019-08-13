@@ -40,8 +40,6 @@ class StarWarsController: UIViewController {
     private var charactersViewModel: PeopleViewModel!
     private var planetsViewModel: PlanetsViewModel!
     
-    // TODO: Add refresh control to reset
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
@@ -53,7 +51,7 @@ class StarWarsController: UIViewController {
     private func configureTableView() {
         starWarsTableView.delegate = self
         starWarsTableView.dataSource = self
-        starWarsTableView.register(UINib(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "CharacterCell")
+        starWarsTableView.register(UINib(nibName: "PersonCell", bundle: nil), forCellReuseIdentifier: "PersonCell")
         starWarsTableView.register(UINib(nibName: "PlanetCell", bundle: nil), forCellReuseIdentifier: "PlanetCell")
     }
     
@@ -113,7 +111,7 @@ extension StarWarsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch dataState {
         case .people:
-            guard let cell = starWarsTableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterCell else {
+            guard let cell = starWarsTableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
@@ -166,11 +164,13 @@ extension StarWarsController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         searching = true
+        
+        let handlesWhiteSpaceSearchText = searchText.components(separatedBy: " ").joined(separator: "%20")
         switch dataState {
         case .people:
-            charactersViewModel.searchCharacters(keyword: searchText)
+            charactersViewModel.searchCharacters(keyword: handlesWhiteSpaceSearchText)
         case .planets:
-            planetsViewModel.searchPlanets(keyword: searchText)
+            planetsViewModel.searchPlanets(keyword: handlesWhiteSpaceSearchText)
         }
     }
 }
@@ -196,27 +196,33 @@ extension StarWarsController: PeopleViewModelDelegate, PlanetsViewModelDelegate 
 }
 
 // MARK: Cell Delegates: add char / planet to flashcard
-extension StarWarsController: CharacterCellDelegate, PlanetCellDelegate {
+extension StarWarsController: PersonCellDelegate, PlanetCellDelegate {
     func addCharToFlash(tag: Int) {
         addToFlash(index: tag)
     }
     func addPlanetToFlash(tag: Int) {
-        // TODO: add to flash
-        print("button pressed")
+        addToFlash(index: tag)
     }
     private func addToFlash(index: Int) {
         switch dataState {
         case .people:
             let person = searching ? charactersViewModel.searchPerson(at: index) : charactersViewModel.person(at: index)
             guard !FlashcardsDataManager.isFlashExist(name: person.name) else {
-                showAlert(title: "Already Exist", message: "This Star Wars character already exist in your flashcard.")
+                showAlert(title: "Already Exist", message: "\(person.name) already exist in your flashcard.")
                 return
             }
             let flashDescription = person.flashcardDiscription
             let newFlashcard = Flashcard(type: Category.character.rawValue, name: person.name, description: flashDescription)
             FlashcardsDataManager.addNewFlashcard(flashcard: newFlashcard)
         case .planets:
-            break
+            let planet = searching ? planetsViewModel.searchPlanet(at: index) : planetsViewModel.planet(at: index)
+            guard !FlashcardsDataManager.isFlashExist(name: planet.name) else {
+                showAlert(title: "Already Exist", message: "\(planet.name) already exist in your flashcard.")
+                return
+            }
+            let flashDescription = planet.flashcardDiscription
+            let newFlashcard = Flashcard(type: Category.planet.rawValue, name: planet.name, description: flashDescription)
+            FlashcardsDataManager.addNewFlashcard(flashcard: newFlashcard)
         }
     }
 }
