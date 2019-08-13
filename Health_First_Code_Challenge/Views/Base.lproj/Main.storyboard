@@ -60,14 +60,36 @@
         <!--Flashcards Detail Controller-->
         <scene sceneID="iUZ-sL-Oxn">
             <objects>
-                <viewController id="sZd-W8-l2g" customClass="FlashcardsDetailController" customModule="Health_First_Code_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlashDetailVC" id="sZd-W8-l2g" customClass="FlashcardsDetailController" customModule="Health_First_Code_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tZn-6q-qvV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ed-G1-tkz">
+                                <rect key="frame" x="41.5" y="161" width="331" height="448"/>
+                                <color key="backgroundColor" red="0.90303797370000005" green="1" blue="0.994254741" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="flipFlashcard:" destination="sZd-W8-l2g" eventType="touchUpInside" id="mzU-87-HGA"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="centerY" secondItem="AzS-7h-Ew9" secondAttribute="centerY" multiplier="0.85" id="dCk-sl-mJq"/>
+                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="height" secondItem="tZn-6q-qvV" secondAttribute="height" multiplier="0.5" id="fTD-Gy-5fr"/>
+                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="width" secondItem="tZn-6q-qvV" secondAttribute="width" multiplier="0.8" id="jD5-Y0-LCq"/>
+                            <constraint firstItem="0Ed-G1-tkz" firstAttribute="centerX" secondItem="AzS-7h-Ew9" secondAttribute="centerX" id="xZs-es-OR4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AzS-7h-Ew9"/>
                     </view>
                     <navigationItem key="navigationItem" id="wyv-Xa-Zp0"/>
+                    <connections>
+                        <outlet property="flashcardButton" destination="0Ed-G1-tkz" id="iqe-K8-J8V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K21-iN-Kcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

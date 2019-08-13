@@ -9,9 +9,15 @@
 import UIKit
 
 class FlashcardsDetailController: UIViewController {
-
+    
+    @IBOutlet weak var flashcardButton: UIButton!
+    var flashcard: Flashcard!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    @IBAction func flipFlashcard(_ sender: UIButton) {
+        
+    }
 }

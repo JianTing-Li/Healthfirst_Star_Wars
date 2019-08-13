@@ -21,6 +21,7 @@ class FlashcardsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        title = "Flashcards"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,11 +55,15 @@ extension FlashcardsController: UICollectionViewDataSource {
 
 extension FlashcardsController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: Segue to Detail
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "FlashDetailVC") as! FlashcardsDetailController
+        let flashcard = flashCards[indexPath.row]
+        destinationVC.flashcard = flashcard
+        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 270, height: 360)
+        return CGSize.init(width: 225, height: 300)
     }
 }
 
