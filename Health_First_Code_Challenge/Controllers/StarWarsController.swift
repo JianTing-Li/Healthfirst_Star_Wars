@@ -204,6 +204,7 @@ extension StarWarsController: PersonCellDelegate, PlanetCellDelegate {
         addToFlash(index: tag)
     }
     private func addToFlash(index: Int) {
+        var name = ""
         switch dataState {
         case .people:
             let person = searching ? charactersViewModel.searchPerson(at: index) : charactersViewModel.person(at: index)
@@ -213,16 +214,19 @@ extension StarWarsController: PersonCellDelegate, PlanetCellDelegate {
             }
             let flashDescription = person.flashcardDiscription
             let newFlashcard = Flashcard(type: Category.character.rawValue, name: person.name, description: flashDescription)
+            name = person.name
             FlashcardsDataManager.addNewFlashcard(flashcard: newFlashcard)
         case .planets:
             let planet = searching ? planetsViewModel.searchPlanet(at: index) : planetsViewModel.planet(at: index)
             guard !FlashcardsDataManager.isFlashExist(name: planet.name) else {
-                showAlert(title: "Already Exist", message: "\(planet.name) already exist in your flashcard.")
+                showAlert(title: "Already Exist", message: "\"\(planet.name)\" already exist in your flashcard.")
                 return
             }
             let flashDescription = planet.flashcardDiscription
             let newFlashcard = Flashcard(type: Category.planet.rawValue, name: planet.name, description: flashDescription)
+            name = planet.name
             FlashcardsDataManager.addNewFlashcard(flashcard: newFlashcard)
         }
+        showAlert(title: "\"\(name)\" added to your flashcards", message: nil)
     }
 }

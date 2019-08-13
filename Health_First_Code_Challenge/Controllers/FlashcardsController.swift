@@ -65,6 +65,14 @@ extension FlashcardsController: UICollectionViewDelegateFlowLayout {
 // MARK: More options button via FlashcardCellDelegate
 extension FlashcardsController: FlashcardCellDelegate {
     func moreOptionsButtonPressed(index: Int) {
-        // TODO: Action sheet to delete selected flashcard
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            FlashcardsDataManager.deleteFlashcard(atIndex: index)
+            self.flashCards = FlashcardsDataManager.fetchFlashcards()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        actionSheet.addAction(delete)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true)
     }
 }
