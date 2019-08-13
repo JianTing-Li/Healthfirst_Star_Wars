@@ -1,4 +1,4 @@
-# Star_Wars
+# Star Wars
 <p align="center">
   <img src= "https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/StarWarsSmallest.png" />
 </p>
@@ -6,35 +6,34 @@
 Welcome to “Star Wars,” a Star Wars study app. With this app, you learn every character and planet in Star Wars and memorize them with ease. Download this app, learn all about Star Wars and show off to your friends.
 
 ## Scrolling a List and Switch Between Categories
-* When the app is launched, you would be shown with a list of Star Wars characters. 
-* The app will load more characters as you scroll to the end of the list.
+* When the app is launched, you would be shown with a list of Star Wars characters.
 * You can switch between Star Wars characters and planets.
+* As you scroll down the list, the app will load more characters or planets.
 
-![AppLaunchList](gif link)
-![SwitchCategories](gif link)
+![BrowseAndScroll](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/SwitchAndScroll.gif)
 
 ## Searching Specific Star Wars characters or planets
 * You can search for specific Star Wars characters or planets using the search bar.
 * To reset the list, use the refresh control or switch to the other categories (Characters or Planets).
 
-![SearchBarDemo](gif link)
+![SearchBarDemo](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/Searching.gif)
 
-## Searching Specific Star Wars characters or planets
-* Press the circle-plus button to add the desired item to your flashcards.
+## Add items to flashcards
+* Press the circle-plus button to add the desired items to your flashcards.
 
-![AddToFlash](gif link)
+![AddToFlash](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/AddToFlash.gif)
 
 ## Using the Flashcards (not yet implemented)
 * Clicking on a flashcard will take you to a new page. You will be given a card with the character’s or planet’s name. 
 * Here, you can say anything or guess what you know about the planet or the character. 
 * To see the information, simply click on the flashcard and the card will flip with the information of the character or planet.
 
-![UsingFlashcard](gif link)
+![UsingFlashcard](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/NavigatingFlashcards.gif)
 
 ## Deleting a Flashcard (not yet implemented)
 * To delete a flashcard, simply click on the more button (...) on the top left and select delete.
 
-![DeleteFlashCard](gif link)
+![DeleteFlashCard](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/DeletingFlashcard.gif)
 
 # Built With
 * UiKit
