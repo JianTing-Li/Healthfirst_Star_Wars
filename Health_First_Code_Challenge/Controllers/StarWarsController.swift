@@ -88,7 +88,7 @@ class StarWarsController: UIViewController {
     private func changeSearchBarPlaceholder() {
         switch dataState {
         case .people:
-            starWarsSearchBar.placeholder = Constants.charSearchPlaceholder
+            starWarsSearchBar.placeholder = Constants.personSearchPlaceholder
         case .planets:
             starWarsSearchBar.placeholder = Constants.peopleSearchPlaceHolder
         }
@@ -172,6 +172,7 @@ extension StarWarsController: UISearchBarDelegate {
         case .planets:
             planetsViewModel.searchPlanets(keyword: handlesWhiteSpaceSearchText)
         }
+        searchBar.text = ""
     }
 }
 

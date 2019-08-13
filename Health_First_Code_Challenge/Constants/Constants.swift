@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let charSearchPlaceholder = "Enter a Character"
+    static let personSearchPlaceholder = "Enter a Person"
     static let peopleSearchPlaceHolder = "Enter a Planet"
     static let dateFormat = "MMM d, yyyy"
     static let flashCardsPListName = "Flashcards.plist"
