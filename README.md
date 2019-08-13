@@ -23,14 +23,14 @@ Welcome to “Star Wars,” a Star Wars study app. With this app, you learn ever
 
 ![AddToFlash](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/AddToFlash.gif)
 
-## Using the Flashcards (not yet implemented)
+## Using the Flashcards
 * Clicking on a flashcard will take you to a new page. You will be given a card with the character’s or planet’s name. 
 * Here, you can say anything or guess what you know about the planet or the character. 
 * To see the information, simply click on the flashcard and the card will flip with the information of the character or planet.
 
 ![UsingFlashcard](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/NavigatingFlashcards.gif)
 
-## Deleting a Flashcard (not yet implemented)
+## Deleting a Flashcard
 * To delete a flashcard, simply click on the more button (...) on the top left and select delete.
 
 ![DeleteFlashCard](https://github.com/JianTing-Li/Healthfirst_Star_Wars/blob/master/Images_Gifs/DeletingFlashcard.gif)
